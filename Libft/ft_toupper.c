@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crigonza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: crigonza <crigonza@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 18:36:52 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/20 15:21:38 by crigonza         ###   ########.fr       */
+/*   Created: 2022/04/20 15:29:27 by crigonza          #+#    #+#             */
+/*   Updated: 2022/04/20 16:17:57 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/* Fills n bytes of the memory pointed to by s with the constant byte c       */
+/* Convert lowercase letters to uppercase                                     */
 
 #include"libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_toupper(int c)
 {
-	int	i;
-	unsigned char *schar;
-	schar = s;
-	i = 0;
-	while (i < n)
-	{
-		schar[i] = c;
-		i ++;
-	}
-	return (s);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }
