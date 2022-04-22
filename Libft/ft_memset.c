@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crigonza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 18:36:52 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/20 15:21:38 by crigonza         ###   ########.fr       */
+/*   Created: 2022/04/21 22:49:09 by crigonza          #+#    #+#             */
+/*   Updated: 2022/04/22 08:12:28 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/* Fills n bytes of the memory pointed to by s with the constant byte c       */
 
-#include"libft.h"
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	int	i;
-	unsigned char *schar;
+	size_t			i;
+	unsigned char	*schar;
+
 	schar = s;
 	i = 0;
 	while (i < n)
 	{
-		schar[i] = c;
-		i ++;
+		schar[i] = (unsigned char)c;
+		i++;
 	}
 	return (s);
 }

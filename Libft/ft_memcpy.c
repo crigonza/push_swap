@@ -23,11 +23,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	if ((schar != NULL) && (dchar != NULL))
 	{
-		while (i<n)
-		{
-			dchar[i] = schar[i];
-			i++;
-		}
+	while (i<n)
+	{
+		dchar[i] = schar[i];
+		i++;
 	}
 	return (dest);
 }
