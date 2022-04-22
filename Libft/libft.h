@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 17:27:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/21 18:23:20 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/22 19:52:00 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
+char 	*ft_strnstr(const char *s1, const char *s2, size_t len);
+void	*ft_calloc(size_t nmemb, size_t size);
 size_t	ft_strlen(const char *s);
 
 #endif
