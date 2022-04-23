@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:13:55 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/22 19:30:38 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/23 12:15:44 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,4 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	return (number * n);
-}
-int main(void)
-{
-	const char *a;
-	a = " 	 -12345";
-	printf("%d", ft_atoi(a));
-	return (0);
 }

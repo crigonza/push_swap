@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:53:28 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/22 19:59:54 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/23 12:19:48 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ char	*ft_strdup(const char *s)
 	{
 		ptr = s;
 	}
-	return (ptr);
+	return ((char)ptr);
 }

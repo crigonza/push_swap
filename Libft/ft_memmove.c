@@ -6,34 +6,37 @@
 /*   By: crigonza <crigonza@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:10:52 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/20 17:36:22 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/23 13:23:10 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* Copies n bytes from memory area src to memory area dest. */
 
 #include"libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int i;
-	const char *schar;
+	size_t	i;
+	unsigned char *schar;
 	unsigned char *dchar;
-	unsigned char *temp;
-	schar = src;
-	dchar = dest;
+	schar = (unsigned char *)src;
+	dchar = (unsigned char *)dest;
 	i = 0;
-	if ((schar != NULL) && (dchar != NULL))
+	if (n == 0 || src == dest)
+	   return (dest);	
+	if (schar > dchar)
 	{
-		while (i<n)
+		while(n > 0)
 		{
-			temp[i] = schar[i];
-			i++;
+			dchar[n] = schar[n];
+			n--;
 		}
-		i = 0;
-		while (i<n)
-		{
-			dchar[i] = temp[i];
-			i++;
-		}
+		return (dest);
+	}
+	while (i < n)
+	{
+		dchar[i] = schar[i];
+		i++;
 	}
 	return (dest);
 }

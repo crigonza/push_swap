@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 16:34:26 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/23 06:37:52 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/23 11:49:19 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,4 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		i++;
 	}
 	return (dest);
+}
