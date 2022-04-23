@@ -3,31 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crigonza <crigonza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:48:59 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/21 17:22:19 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/23 07:48:47 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* Returns a pointer to the first occurrence of the character c in the 
+   string s. */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0')
+	int i;
+
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (*s == c)
-			return ((char*)s);
-		s++;
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
 	}
+	if ((char)c == '\0')
+		return ((char *)&s[i]);
 	return (NULL);
 }
-
-int main (void)
-{
-	char s[] = "abcdefg";
-	printf("%s", ft_strchr(s, 'f'));
-	return (0);
-}
-

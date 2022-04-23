@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crigonza <crigonza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 17:23:34 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/21 18:48:39 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/23 07:59:09 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 /*Returns a pointer to the last occurrence of the character c in the string s */
 
-#include"libft.h"
+#include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    char	*lastf;
-    lastf = NULL;
-	while (*s != '\0')
+	int i;
+	char *lastf;
+
+	i = 0;
+	lastf = NULL;
+	while (s[i] != '\0')
 	{
-		if (*s == (char)c)
-			lastf = s;
-		s++;
+		if (s[i] == (char)c)
+			lastf = (char *)&s[i];
+		i++;
 	}
+	if ((char)c == '\0')
+		return ((char *)&s[i]);
 	return (lastf);
-}
-int main (void)
-{
-	char s[] = "abcddefg";
-	printf("%s", ft_strrchr(s, 'd'));
-	return (0);
 }

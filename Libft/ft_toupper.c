@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crigonza <crigonza@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 15:29:27 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/20 16:17:57 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/23 07:24:03 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 /* Convert lowercase letters to uppercase                                     */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_toupper(int c)
 {
