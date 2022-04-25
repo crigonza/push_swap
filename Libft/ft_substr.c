@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 17:10:52 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/23 18:33:14 by crigonza         ###   ########.fr       */
+/*   Created: 2022/04/24 10:35:14 by crigonza          #+#    #+#             */
+/*   Updated: 2022/04/24 10:58:20 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Copies n bytes from memory area src to memory area dest. */
-
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	unsigned char		*sp;
-	unsigned char	*dp;
+	char	*sstr;
+	size_t	i;
 
-	sp = (unsigned char *)src;
-	dp = (unsigned char *)dest;
+	if (!s)
+		return (NULL);
+	sstr = (char *)malloc(len * sizeof(char) + 1);
+	if (!sstr)
+		return (NULL);
 	i = 0;
-	if (n == 0 || src == dest)
-		return (dest);
-	if (dp > sp)
+	while (i < len && start < ft_strlen(s))
 	{
-		while (n--)
-			dp[n] = sp[n];
-		return (dest);
-	}
-	while (i < n)
-	{
-		dp[i] = sp[i];
+		sstr[i] = s[start];
+		start++;
 		i++;
 	}
-	return (dest);
+	sstr[i] = '\0';
+	return (sstr);
 }

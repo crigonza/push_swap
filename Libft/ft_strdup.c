@@ -3,23 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crigonza <crigonza@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:53:28 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/23 12:19:48 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/24 07:53:45 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+/* Returns a pointer to a new string which is a duplicate of the string s. */
+
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {
-	const char	*ptr;
+	char *ptr;
+	size_t slen;
 
-	ptr = (const char*)malloc(sizeof(s));
-	while(*s++ && *ptr++)
-	{
-		ptr = s;
-	}
-	return ((char)ptr);
+	slen = ft_strlen(s) + 1;
+	ptr = (char *)malloc(slen * sizeof(char));
+	if (ptr == NULL)
+		return (NULL);
+	ft_strlcpy(ptr, s, slen);
+	return (ptr);
 }

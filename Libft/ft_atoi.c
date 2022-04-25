@@ -3,25 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crigonza <crigonza@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:13:55 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/23 12:15:44 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/23 20:10:13 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+/* Converts the initial portion of the string pointed to by nptr to int. */
+
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int number;
-	int n;
+	int			i;
+	int			n;
+	long int	result;
 
 	i = 0;
-	number = 0;
+	result = 0;
 	n = 1;
-	while (nptr[i] == '\t' || nptr[i] == ' ')
+	while (nptr[i] >= 9 && nptr[i] <= 13 || nptr[i] == ' ')
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
@@ -31,9 +33,9 @@ int	ft_atoi(const char *nptr)
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		number *= 10;
-		number += nptr[i] - 48;
+		result *= 10;
+		result += nptr[i] - 48;
 		i++;
 	}
-	return (number * n);
+	return (result * n);
 }
