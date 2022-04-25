@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:13:55 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/23 20:10:13 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/25 16:00:24 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	ft_atoi(const char *nptr)
 {
 	int			i;
-	int			n;
+	long int	n;
 	long int	result;
 
 	i = 0;
