@@ -3,79 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crigonza <crigonza@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 19:22:55 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/25 18:37:58 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/26 19:50:02 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_wcounter(char const *s, char c)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
 	if (s[i] != c)
-		i ++;
-		count ++;
+		i++;
+	count++;
 	while (s[i] != '\0')
 	{
 		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
-	
-			count ++;
+			count++;
 		i++;
 	}
 	return (count);
 }
-char	*ft_addstr(char const *s, char c)
+char	*ft_addstr(char const *s, char c, int start)
 {
-	int	i;
-	char *substr;
+	int		i;
+	int		j;
+	char	*substr;
 
-	i = 0;
+	j = 0;
+	i = start;
 	while (s[i] != c)
-		i ++;
-	substr = (char*)malloc(sizeof(char) * (i + 1));
+		i++;
+	j++;
+	substr = (char *)malloc(sizeof(char) * (j + 1));
 	if (!substr)
 		return (NULL);
 	i = 0;
-	while (s[i] != c)
-	{
-		substr[i] = s[i];
-		i ++;
-	}
+	while (s[start] != c)
+		substr[i++] = s[start++];
 	substr[i] = '\0';
 	return (substr);
 }
 
-char    **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-    int 	i;
-	int 	wlen;
+	int		i;
+	int		j;
 	char	**splitstr;
 
-	wlen = ft_wcounter(s, c);
-	splitstr = (char **)malloc(sizeof(char *) * wlen + 1);
+	if (!s)
+		return (NULL);
+	j = ft_wcounter(s, c);
+	splitstr = (char **)malloc(sizeof(char *) * (j + 1));
 	if (!splitstr)
 		return (NULL);
 	i = 0;
-	wlen = 0;
-	while (s[wlen] != '\0')
+	j = 0;
+	while (s[j] != '\0')
 	{
-		while (s[wlen] && s[wlen] == c)
-			wlen ++;
-		if (s[wlen] != c)
-			{
-				splitstr[i] = ft_addstr(s[i], c);
-				i++;
-				while (s[wlen] && s[wlen] != c)
-					wlen++;
-			}
+		if (s[j] && s[j] == c)
+			j++;
+		if (s[j] != c)
+		{
+			splitstr[i] = ft_addstr(s, c, j);
+			i++;
+			while (s[j] && s[j] != c)
+				j++;
+		}
 	}
-	splitstr[i] = '\0';
+	splitstr[i] = NULL;
 	return (splitstr);
 }

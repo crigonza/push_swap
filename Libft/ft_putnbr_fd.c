@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/25 18:54:53 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/27 08:11:49 by crigonza         ###   ########.fr       */
+/*   Created: 2022/04/26 20:07:23 by crigonza          #+#    #+#             */
+/*   Updated: 2022/04/26 21:19:22 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
-	int 	i;
-	size_t	len;
-	
-	len = ft_strlen(s);
-	str=(char*)malloc(sizeof(char const) * (len + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (s[i] != '\0')
-	{
-		str[i] = f(i, s[i]);
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+    char *nbr;
+    long int    ln;
+
+    ln = n;
+    nbr = ft_itoa(ln);
+	ft_putstr_fd(nbr, fd);
 }
