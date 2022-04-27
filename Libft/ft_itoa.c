@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 15:51:49 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/26 22:09:43 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/27 15:20:39 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,29 @@ int	ft_nblen(int n)
 	}
 	return (i);
 }
+char	*ft_addst(char *str, long nbr, int len)
+{
+	char *aux;
 
+	aux = str;
+	aux[len--] = '\0';
+	if (nbr == -2147483648)
+		return (aux);
+	if (nbr == 0)
+		aux[0] = '0';
+	if (nbr < 0)
+	{
+		nbr = -nbr;
+		aux[0] = '-';
+	}
+	while (nbr > 0)
+	{
+		aux[len] = (nbr % 10) + 48;
+		nbr /= 10;
+		len--;
+	}
+	return (aux);
+}
 char	*ft_alloc(long nbr, int len)
 {
 	char	*str;
@@ -47,7 +69,7 @@ char	*ft_alloc(long nbr, int len)
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	str[len] = '\0';
+	str = ft_addst(str, nbr, len);
 	return (str);
 }
 
@@ -61,21 +83,6 @@ char	*ft_itoa(int n)
 	i = ft_nblen(n);
 	str = ft_alloc(nbr, i);
 	if (!str)
-		return(NULL);
-	if (nbr == -2147483648)
-		return (str);
-	if (nbr == 0)
-		str[0] = '0';
-	if (nbr < 0)
-	{
-		nbr = -nbr;
-		str[0] = '-';
-	}
-	while (nbr > 0)
-	{
-		i--;
-		str[i] = (nbr % 10) + 48;
-		nbr /= 10;
-	}
+		return (NULL);
 	return (str);
 }
