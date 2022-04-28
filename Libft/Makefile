@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 11:44:35 by crigonza          #+#    #+#              #
-#    Updated: 2022/04/27 18:34:56 by crigonza         ###   ########.fr        #
+#    Updated: 2022/04/28 08:00:44 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,9 @@ SRCS	=	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c 
 
 OBJS	=	${SRCS:.c=.o}
 
-BONUS	=	ft_lstnew.c
+BONUS	=	ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstadd_back.c
 
-BONUS OBJS		=	${BONUS:.c=.o}
+BONUS_OBJS		=	${BONUS:.c=.o}
 
 CC		= gcc
 
@@ -38,11 +38,14 @@ ${NAME}:
 			ar rcs ${NAME} ${OBJS}
 
 clean:
-				${RM} ${OBJS} 
+				${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean:		clean
 					${RM} ${NAME}
 
 re:				fclean all
 
-.PHONY: all, clen, fclean, re
+bonus:		${OBJS} ${BONUS_OBJS}
+			ar rsc ${NAME} ${OBJS} ${BONUS_OBJS}
+
+.PHONY: all, clean, fclean, re
