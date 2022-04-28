@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 17:23:34 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/23 07:59:09 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:41:28 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
-	char *lastf;
+	int		i;
+	char	*lastf;
 
 	i = 0;
 	lastf = NULL;

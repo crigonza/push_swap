@@ -6,10 +6,11 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:04:54 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/22 08:07:15 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:20:03 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* Checks for any printable character including space. */
 
 #include "libft.h"
 

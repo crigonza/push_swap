@@ -6,10 +6,11 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 11:37:30 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/21 21:56:15 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:20:44 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/* Checks for an alphabetic character.                                        */
+
+/* Checks for an alphabetic character. */
 
 #include "libft.h"
 

@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:53:28 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/24 07:53:45 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:35:56 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 char	*ft_strdup(const char *s)
 {
-	char *ptr;
-	size_t slen;
+	char	*ptr;
+	size_t	slen;
 
 	slen = ft_strlen(s) + 1;
 	ptr = (char *)malloc(slen * sizeof(char));

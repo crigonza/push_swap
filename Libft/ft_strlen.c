@@ -6,10 +6,12 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:17:50 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/21 22:50:02 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:38:21 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* Calculates the length of the string pointed to by s, excluding the 
+   terminating null byte ('\0'). */
 
 #include "libft.h"
 

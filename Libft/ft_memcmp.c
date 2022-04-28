@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 17:12:21 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/23 20:25:38 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:28:21 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char *ptrs1;
-	unsigned char *ptrs2;
+	unsigned char	*ptrs1;
+	unsigned char	*ptrs2;
 
 	ptrs1 = (unsigned char *)s1;
 	ptrs2 = (unsigned char *)s2;

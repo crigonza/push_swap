@@ -6,10 +6,11 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 21:57:56 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/21 22:00:17 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:24:27 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/* Checks for a digit (0 through 9).                                          */
+
+/* Checks for a digit (0 through 9). */
 
 #include "libft.h"
 

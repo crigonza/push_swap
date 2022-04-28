@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crigonza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 17:37:59 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/19 18:17:17 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:23:29 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/* Checks whether c is a 7-bit unsigned char value that fits into the ASCII   */
-/* character set.                                                             */
+
+/* Checks whether c is a 7-bit unsigned char value that fits into the ASCII  
+	character set. */
 
 #include "libft.h"
 

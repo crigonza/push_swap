@@ -6,9 +6,12 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 22:49:09 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/22 08:12:28 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:31:59 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* fills the first n bytes of the memory area pointed to by s with the 
+   constant byte c. */
 
 #include "libft.h"
 

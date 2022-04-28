@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:10:52 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/23 18:33:14 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:30:33 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t			i;
-	unsigned char		*sp;
+	unsigned char	*sp;
 	unsigned char	*dp;
 
 	sp = (unsigned char *)src;

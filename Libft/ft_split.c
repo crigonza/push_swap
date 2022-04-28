@@ -5,78 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/24 19:22:55 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/26 19:50:02 by crigonza         ###   ########.fr       */
+/*   Created: 2022/04/28 19:40:06 by crigonza          #+#    #+#             */
+/*   Updated: 2022/04/28 20:00:48 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_wcounter(char const *s, char c)
+#include"libft.h"
+size_t  ft_words(char const *s, char c)
 {
-	int	i;
-	int	count;
+    int     i;
+    size_t  j;
+    char    *str;
 
-	i = 0;
-	count = 0;
-	if (s[i] != c)
-		i++;
-	count++;
-	while (s[i] != '\0')
-	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
-			count++;
-		i++;
-	}
-	return (count);
+    i = 0;
+    j = 0;
+    str = s;
+    if (str[i] != c)
+    j++;
+    i++;
+    while(str[i])
+    {
+        if (str[i] == c && str[i + 1] && str[i + 1] != '\0')
+            j++;
+        i++;
+    }
+    return(j);
 }
-char	*ft_addstr(char const *s, char c, int start)
+char    **ft_split(char const *s, char c)
 {
-	int		i;
-	int		j;
-	char	*substr;
+    size_t  words;
+    char    **
 
-	j = 0;
-	i = start;
-	while (s[i] != c)
-		i++;
-	j++;
-	substr = (char *)malloc(sizeof(char) * (j + 1));
-	if (!substr)
-		return (NULL);
-	i = 0;
-	while (s[start] != c)
-		substr[i++] = s[start++];
-	substr[i] = '\0';
-	return (substr);
-}
+    words = ft_words(s, c);
 
-char	**ft_split(char const *s, char c)
-{
-	int		i;
-	int		j;
-	char	**splitstr;
-
-	if (!s)
-		return (NULL);
-	j = ft_wcounter(s, c);
-	splitstr = (char **)malloc(sizeof(char *) * (j + 1));
-	if (!splitstr)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[j] != '\0')
-	{
-		if (s[j] && s[j] == c)
-			j++;
-		if (s[j] != c)
-		{
-			splitstr[i] = ft_addstr(s, c, j);
-			i++;
-			while (s[j] && s[j] != c)
-				j++;
-		}
-	}
-	splitstr[i] = NULL;
-	return (splitstr);
 }

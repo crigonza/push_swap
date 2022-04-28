@@ -6,9 +6,12 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 11:11:14 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/27 08:18:27 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:43:27 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* appends the NUL-terminated string src to the end of dst. It will append at 
+   most size - strlen(dst) - 1 bytes, NUL-terminating the result. */
 
 #include "libft.h"
 
