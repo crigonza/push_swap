@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 17:27:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/27 21:02:24 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/30 19:09:16 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void 				ft_lstadd_front(t_list **lst, t_list *new);
+void    			ft_lstdelone(t_list *lst, void (*del)(void *));
+void    			ft_lstclear(t_list **lst, void (*del)(void *));
+void    			ft_lstiter(t_list *lst, void (*f)(void *));
+void    			ft_lstadd_back(t_list **lst, t_list *new);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -47,6 +51,7 @@ int					ft_tolower(int c);
 int					ft_atoi(const char *nptr);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_lstsize(t_list *lst);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *s1, const char *s2, size_t len);
@@ -62,5 +67,6 @@ size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlen(const char *s);
 t_list				*ft_lstnew(void *content);
 t_list  			*ft_lstlast(t_list *lst);
+t_list  			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

@@ -14,10 +14,10 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-    char *nbr;
-    long int    ln;
+	char	*nbr;
 
-    ln = n;
-    nbr = ft_itoa(ln);
+	if (!n)
+		return ;
+	nbr = ft_itoa(n);
 	ft_putstr_fd(nbr, fd);
 }

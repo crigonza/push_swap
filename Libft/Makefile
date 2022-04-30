@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 11:44:35 by crigonza          #+#    #+#              #
-#    Updated: 2022/04/28 08:00:44 by crigonza         ###   ########.fr        #
+#    Updated: 2022/04/30 19:25:17 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRCS	=	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c 
 
 OBJS	=	${SRCS:.c=.o}
 
-BONUS	=	ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstadd_back.c
+BONUS	=	ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstadd_back.c ft_lstsize.c \
+					ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+
 
 BONUS_OBJS		=	${BONUS:.c=.o}
 

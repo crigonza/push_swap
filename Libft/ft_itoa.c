@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 15:51:49 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/30 12:57:05 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/04/30 13:17:07 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 int	ft_nblen(int n)
 {
 	int			i;
+	long		nb;
 
 	i = 0;
-	if (n == 0)
+	nb = n;
+	if (nb == 0)
 		return (1);
-	if (n < 0)
+	if (nb < 0)
 	{
-		n = -n;
+		nb = -nb;
 		i = 1;
 	}
-	while (n)
+	while (nb)
 	{
-		n = n / 10;
+		nb = nb / 10;
 		i++;
 	}
 	return (i);
@@ -36,23 +38,26 @@ char	*ft_itoa(int n)
 {
 	int			nlen;
 	char		*str;
-	
+	long		nb;
+
 	nlen = ft_nblen(n);
-	if (!(str = (char *)malloc(sizeof(char) * (nlen + 1))))
+	nb = n;
+	str = (char *)malloc(sizeof(char) * (nlen + 1));
+	if (!str)
 		return (NULL);
 	str[nlen--] = '\0';
-	if (n == 0)
+	if (nb == 0)
 		str[0] = '0';
-	if (n < 0)
-		{
-			n = -n;
-			str[0] = '-';
-		}
-	while (n)
+	if (nb < 0)
 	{
-		str[nlen] = (n % 10) + 48;
-		n = n / 10;
-		nlen--; 
+		nb = -nb;
+		str[0] = '-';
+	}
+	while (nb)
+	{
+		str[nlen] = (nb % 10) + 48;
+		nb = nb / 10;
+		nlen--;
 	}
 	return (str);
 }
