@@ -5,37 +5,81 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 19:40:06 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/28 20:00:48 by crigonza         ###   ########.fr       */
+/*   Created: 2022/04/24 19:22:55 by crigonza          #+#    #+#             */
+/*   Updated: 2022/04/30 11:42:21 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
-size_t  ft_words(char const *s, char c)
-{
-    int     i;
-    size_t  j;
-    char    *str;
+#include "libft.h"
 
-    i = 0;
-    j = 0;
-    str = s;
-    if (str[i] != c)
-    j++;
-    i++;
-    while(str[i])
-    {
-        if (str[i] == c && str[i + 1] && str[i + 1] != '\0')
-            j++;
-        i++;
-    }
-    return(j);
+int	ft_wcounter(char const *s, char c)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	if (s[i] != c)
+		i++;
+	count++;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+			count++;
+		i++;
+	}
+	return (count);
 }
-char    **ft_split(char const *s, char c)
+
+char	**ft_freestr(char **str, int i)
 {
-    size_t  words;
-    char    **
+	while (i >= 0)
+	{
+		free(str[i]);
+		str[i] = NULL;
+		i--;
+	}
+	free(str);
+	str = NULL;
+	return (NULL);
+}
 
-    words = ft_words(s, c);
+char	**ft_addsubstr(char **str, char const *s, char c)
+{
+	int		i;
+	int		j;
 
+	i = 0;
+	j = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			j = 0;
+			while (s[j] && s[j] != c)
+				j++;
+			str[i] = ft_substr(s, 0, j);
+			if (!str[i])
+				return (ft_freestr(str, i));
+			i++;
+			s = s + j;
+		}
+		else
+			s++;
+	}
+	str[i] = NULL;
+	return (str);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**splitstr;
+
+	if (!s)
+		return (NULL);
+	splitstr = (char **)malloc(sizeof(char *) * (ft_wcounter(s, c) + 1));
+	if (!splitstr)
+		return (NULL);
+	splitstr = ft_addsubstr(splitstr, s, c);
+	return (splitstr);
 }
