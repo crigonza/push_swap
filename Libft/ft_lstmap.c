@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 18:39:58 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/30 19:08:36 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/01 10:36:53 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list  *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-    t_list  *aux;
+    t_list  *aux; 
     t_list  *newlst;
 
     aux = NULL;
