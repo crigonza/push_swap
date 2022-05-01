@@ -14,14 +14,11 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t len;
-	char *str;
-	int i;
+	char	*str;
+	int		i;
 
-	len = ft_strlen(s);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	//if (!str)
-		//return (NULL);
+	if (!s)
+		return ;
 	i = 0;
 	while (s[i] != '\0')
 	{
