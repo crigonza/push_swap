@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 18:54:53 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/27 08:11:49 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/01 11:25:31 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	len;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	len = ft_strlen(s);
 	str = (char *)malloc(sizeof(char const) * (len + 1));
 	if (!str)

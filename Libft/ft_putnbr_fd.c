@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:07:23 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/26 21:19:22 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/02 18:18:59 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*nbr;
+	long	nbr;
 
-	if (!n)
-		return ;
-	nbr = ft_itoa(n);
-	ft_putstr_fd(nbr, fd);
+	nbr = n;
+	if (nbr < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nbr = -n;
+	}
+	if (nbr > 9)
+		ft_putnbr_fd(nbr / 10, fd);
+	ft_putchar_fd((nbr % 10) + 48, fd);
 }

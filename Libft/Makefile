@@ -45,7 +45,7 @@ clean:
 fclean:		clean
 					${RM} ${NAME}
 
-re:				fclean all
+re:		fclean all
 
 bonus:		${OBJS} ${BONUS_OBJS}
 			ar rsc ${NAME} ${OBJS} ${BONUS_OBJS}
