@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 10:59:08 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/26 19:50:20 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/03 17:21:02 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 	char	*str;
 
-	i = ft_strlen(s1);
-	j = ft_strlen(s2);
 	if (!s1 || !s2)
 		return (NULL);
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
 	str = (char *)malloc(sizeof(char) * (i + j + 1));
 	if (!str)
 		return (NULL);

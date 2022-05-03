@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:56:34 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/27 18:38:01 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/03 18:04:41 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	*str;
 	int		i;
 
 	if (!s)

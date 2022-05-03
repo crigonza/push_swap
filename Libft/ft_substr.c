@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 10:35:14 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/24 10:58:20 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/03 19:46:40 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sstr;
 	size_t	i;
+	size_t	slen;
 
 	if (!s)
 		return (NULL);
-	sstr = (char *)malloc(len * sizeof(char) + 1);
+	slen = ft_strlen(s);
+	if (slen > len)
+		slen = len;
+	sstr = (char *)malloc(slen * sizeof(char) + 1);
 	if (!sstr)
 		return (NULL);
 	i = 0;

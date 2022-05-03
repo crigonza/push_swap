@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 16:34:26 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/28 17:28:49 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/03 18:10:48 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int				i;
-	const char		*schar;
-	unsigned char	*dchar;
+	size_t				i;
+	const char			*schar;
+	unsigned char		*dchar;
 
 	schar = (const char *)src;
 	dchar = (unsigned char *)dest;

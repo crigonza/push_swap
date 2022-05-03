@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:13:55 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/28 17:10:08 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/03 18:02:52 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	result = 0;
 	n = 1;
-	while (nptr[i] >= 9 && nptr[i] <= 13 || nptr[i] == ' ')
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{

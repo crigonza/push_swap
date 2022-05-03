@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 11:44:35 by crigonza          #+#    #+#              #
-#    Updated: 2022/04/30 22:00:08 by crigonza         ###   ########.fr        #
+#    Updated: 2022/05/03 18:16:47 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,35 +19,37 @@ SRCS	=	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c 
 		ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
 		ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 
-OBJS	=	${SRCS:.c=.o}
+OBJS	=	$(SRCS:.c=.o)
 
-BONUS	=	ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstadd_back.c ft_lstsize.c \
-		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+BONUS	=	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstlast_bonus.c \
+			ft_lstadd_back_bonus.c ft_lstsize_bonus.c ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c \
 
 
-BONUS_OBJS		=	${BONUS:.c=.o}
+BONUS_OBJS		=	$(BONUS:.c=.o)
 
 CC		= gcc
 
-CCFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror -g
 
 RM		= rm -f
 
-all: ${NAME}
+all: $(NAME)
 
-${NAME}:
-			${CC} -c ${FLAGS} ${SRCS}
-			ar rcs ${NAME} ${OBJS}
+$(NAME): 
+		gcc $(CFLAGS) -c $(SRCS)
+		ar rcs $(NAME) $(OBJS)
 
 clean:
-				${RM} ${OBJS} ${BONUS_OBJS}
+		$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean:		clean
-					${RM} ${NAME}
+			$(RM) $(NAME)
 
 re:		fclean all
 
-bonus:		${OBJS} ${BONUS_OBJS}
-			ar rsc ${NAME} ${OBJS} ${BONUS_OBJS}
+bonus:		
+		gcc $(CFLAGS) -c $(SRCS) $(BONUS)
+		ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
-.PHONY: all, clean, fclean, re
+.PHONY: all clean fclean re
