@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 19:22:55 by crigonza          #+#    #+#             */
-/*   Updated: 2022/04/30 11:42:21 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/05 17:21:53 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int	ft_wcounter(char const *s, char c)
 	i = 0;
 	count = 0;
 	if (s[i] != c)
+	{
 		i++;
-	count++;
+		count++;
+	}
 	while (s[i] != '\0')
 	{
 		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
