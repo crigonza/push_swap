@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:34:43 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/03 19:30:25 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/05 17:29:30 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	char	*ptr;
 
 	if (nmemb == SIZE_MAX && size == SIZE_MAX)
-			return(NULL);
+		return (NULL);
 	ptr = (void *)malloc(nmemb * size);
 	if (!ptr)
 		return (NULL);
