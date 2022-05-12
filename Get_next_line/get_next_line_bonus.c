@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 11:21:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/12 17:17:09 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/12 19:23:47 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	static char	*strge;
+	static char	*strge[OPEN_MAX];
 	char		*line;
 
-	if (fd == -1 || BUFFER_SIZE <= 0 || fd > 4095)
+	if (fd == -1 || BUFFER_SIZE <= 0 || fd > OPEN_MAX)
 		return (NULL);
-	if (!strge)
+	if (!strge[fd])
 	{
-		strge = (char *)malloc(sizeof(char) * 1);
-		strge[0] = '\0';
+		strge[fd] = malloc(sizeof(char) * 1);
+		strge[fd][0] = '\0';
 	}
-	strge = ft_read_file(fd, strge);
-	if (!strge)
+	strge[fd] = ft_read_file(fd, strge[fd]);
+	if (!strge[fd])
 		return (NULL);
-	line = ft_line(strge);
-	strge = ft_rest(strge);
+	line = ft_line(strge[fd]);
+	strge[fd] = ft_rest(strge[fd]);
 	return (line);
 }
 
