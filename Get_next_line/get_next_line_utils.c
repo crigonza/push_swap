@@ -3,31 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crigonza <crigonza@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 12:57:49 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/07 13:02:05 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/11 20:16:57 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strrchr(const char *s, int c)
+size_t	ft_strlen(const char *s)
 {
-	int		i;
-	char	*lastf;
+	size_t	len;
+
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	return (len);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
 
 	i = 0;
-	lastf = NULL;
 	while (s[i] != '\0')
 	{
 		if (s[i] == (char)c)
-			lastf = (char *)&s[i];
+			return ((char *)&s[i]);
 		i++;
 	}
 	if ((char)c == '\0')
 		return ((char *)&s[i]);
-	return (lastf);
+	return (NULL);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)

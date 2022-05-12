@@ -3,24 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crigonza <crigonza@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 11:48:29 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/07 11:58:27 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/10 19:09:46 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <fcntl.h>
 
-int	main()
+int	main(void)
 {
 	char	*line;
 	int		fd;
 
-	fd = open (test, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
-	printf("%s,line = get_next_line(fd));
-	return (0)
+	fd = open ("./test.txt", O_RDONLY);
+	while(1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break;
+		printf("%s",line);
+		free (line);
+	}
 }
