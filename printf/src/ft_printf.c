@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:41:53 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/14 11:14:02 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/14 11:31:33 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_printf(char const *str, ...)
 
 	i = 0;
 	count = 0;
-	va_start(arg, s);
+	va_start(arg, str);
 	while (str[i])
 	{
 		if (str[i] == '%')

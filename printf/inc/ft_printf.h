@@ -6,14 +6,14 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:44:36 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/14 10:18:01 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/14 11:30:49 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 #define FT_PRINTF_H
 
-#include "../libft/inc/libft.h"
+#include "../libft/libft.h"
 #include <stdarg.h>
 
 typedef struct  s_formats
