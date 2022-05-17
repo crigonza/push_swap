@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:44:36 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/17 13:43:30 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/17 18:57:51 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,15 @@ t_printf	*ft_initialize(char  const *str, va_list arg);
 int     ft_printf(char const *str, ...);
 void     ft_check_format(t_printf *tab);
 void    ft_check_conv(t_printf *tab);
+void	ft_reset(t_printf *tab);
 void    ft_printf_c(t_printf *tab);
 void    ft_printf_s(t_printf *tab);
-void	ft_printf_d(t_printf *tab);
+void	ft_printf_id(t_printf *tab);
 
-//int main(void);
-//char	*ft_strchr(const char *s, int c);
+/*int main(void);
+char	*ft_strchr(const char *s, int c);
+int	ft_atoi(const char *nptr);
+int	ft_isdigit(int c);*/
 
 # define SPECIFIERS      "cspdiuxX%"
 
