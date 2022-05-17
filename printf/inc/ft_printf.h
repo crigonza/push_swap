@@ -6,18 +6,21 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:44:36 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/14 11:30:49 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/17 13:43:30 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include "../libft/libft.h"
-#include <stdarg.h>
+# include "../Libft/libft.h"
+# include <stdarg.h>
 
-typedef struct  s_formats
+typedef struct  s_printf
 {
+    char const    *format;
+    va_list         arg;
+    int         lenght;
     int     minus;
     int     zero;
     int     precission;
@@ -26,9 +29,21 @@ typedef struct  s_formats
     int     sharp;
     int     space;
     int     plus;
-}
+    int     i;
+}           t_printf;
 
-#define SPECIFIERS      "cspdiuxX%"
+t_printf	*ft_initialize(char  const *str, va_list arg);
+int     ft_printf(char const *str, ...);
+void     ft_check_format(t_printf *tab);
+void    ft_check_conv(t_printf *tab);
+void    ft_printf_c(t_printf *tab);
+void    ft_printf_s(t_printf *tab);
+void	ft_printf_d(t_printf *tab);
+
+//int main(void);
+//char	*ft_strchr(const char *s, int c);
+
+# define SPECIFIERS      "cspdiuxX%"
 
 
 #endif
