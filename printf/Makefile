@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/15 18:57:32 by crigonza          #+#    #+#              #
-#    Updated: 2022/05/18 08:09:14 by crigonza         ###   ########.fr        #
+#    Updated: 2022/05/19 19:03:28 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ OBJ_DIR = obj
 
 SRC = ft_printf.c ft_ini_reset.c ft_printf_chr.c \
 		ft_print_str.c ft_printf_nbr.c ft_print_ptr.c \
+		ft_printf_hex.c
 
 SRCS = $(addprefix $(SRC_DIR)/,$(SRC))
 

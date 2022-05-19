@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 20:53:03 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/17 20:54:39 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/19 19:18:48 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_printf	*ft_initialize(char const *str, va_list arg)
 {
 	t_printf	*newlst;
 
-	newlst = malloc (sizeof(t_printf));
+	newlst = malloc(sizeof(t_printf));
 	if (!newlst)
 		return (NULL);
 	newlst->format = str;
@@ -31,6 +31,7 @@ t_printf	*ft_initialize(char const *str, va_list arg)
 	newlst->space = 0;
 	newlst->plus = 0;
 	newlst->i = 0;
+	newlst->upperx = 0;
 	return (newlst);
 }
 
