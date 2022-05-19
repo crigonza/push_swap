@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/15 18:57:32 by crigonza          #+#    #+#              #
-#    Updated: 2022/05/17 08:00:29 by crigonza         ###   ########.fr        #
+#    Updated: 2022/05/18 08:09:14 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,10 @@ INC_DIR = inc
 
 OBJ_DIR = obj
 
-SRC = ft_printf.c  \
+SRC = ft_printf.c ft_ini_reset.c ft_printf_chr.c \
+		ft_print_str.c ft_printf_nbr.c ft_print_ptr.c \
+
+SRCS = $(addprefix $(SRC_DIR)/,$(SRC))
 
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 

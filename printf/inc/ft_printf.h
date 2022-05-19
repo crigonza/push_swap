@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:44:36 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/17 18:57:51 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/17 21:46:47 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	ft_reset(t_printf *tab);
 void    ft_printf_c(t_printf *tab);
 void    ft_printf_s(t_printf *tab);
 void	ft_printf_id(t_printf *tab);
+void    ft_printf_p(t_printf *tab);
+int	    ft_putptr(unsigned long ptr);
 
 /*int main(void);
 char	*ft_strchr(const char *s, int c);
