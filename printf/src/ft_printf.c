@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:41:53 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/19 19:17:59 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/21 08:43:38 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,34 +40,17 @@ int	ft_printf(char const *str, ...)
 void	ft_check_format(t_printf *tab)
 {
 	tab->i++;
-	//tab->lenght++;
 	while (!ft_strchr(SPECIFIERS, tab->format[tab->i]))
 	{
 		if (tab->format[tab->i] == '.')
-			tab->point = 1;
-		else if (tab->format[tab->i] == '-')
 		{
-			tab->minus = 1;
-			if (ft_isdigit(tab->format[tab->i + 1]))
+			if (tab->format[tab->i-1] == '%')
 			{
-				tab->i++;
-				tab->width += ft_atoi(&tab->format[tab->i]);
-				while (ft_isdigit(tab->format[tab->i]))
-					tab->i++;
-				tab->i--;
+				tab->precision = 1;
+				ft_width(tab);
 			}
-		}
-		else if (tab->format[tab->i] == '0')
-		{
-			tab->zero = 1;
-			if (ft_isdigit(tab->format[tab->i + 1]))
-			{
-				tab->i++;
-				tab->width += ft_atoi(&tab->format[tab->i]);
-				while (ft_isdigit(tab->format[tab->i]))
-					tab->i++;
-				tab->i--;
-			}
+			else
+				tab->point = 1;
 		}
 		else if (tab->format[tab->i] == '+')
 			tab->plus = 1;
@@ -75,29 +58,61 @@ void	ft_check_format(t_printf *tab)
 			tab->sharp = 1;
 		else if (tab->format[tab->i] == ' ')
 			tab->space = 1;
+			else if (tab->format[tab->i] == '-')
+		{
+			tab->minus = 1;
+			ft_width(tab);
+		}
+		else if (tab->format[tab->i] == '0')
+		{
+			tab->zero = 1;
+			ft_width(tab);
+		}
+		else if (ft_isdigit(tab->format[tab->i]))
+		{
+			tab->minfw = 1;
+			ft_width(tab);
+		}
 		tab->i++;
-		//tab->lenght ++;
 	}
 	ft_check_conv(tab);
+}
+
+void	ft_width(t_printf *tab)
+{
+	if (tab->precision || tab->minus || tab->zero)
+		tab->i ++;
+	if (ft_isdigit(tab->format[tab->i]))
+		{
+			tab->width += ft_atoi(&tab->format[tab->i]);
+			while (ft_isdigit(tab->format[tab->i]))
+				tab->i++;
+			tab->i--;
+		}
 }
 
 void	ft_check_conv(t_printf *tab)
 {
 	if (tab->format[tab->i] == '%')
-		tab->lenght += write(1, "%", 1);
-	if (tab->format[tab->i] == 'c')
+	{
+		tab->percent = 1;
 		ft_printf_c(tab);
-	if (tab->format[tab->i] == 's')
+	}
+	else if (tab->format[tab->i] == 'c')
+		ft_printf_c(tab);
+	else if (tab->format[tab->i] == 's')
 		ft_printf_s(tab);
-	if (tab->format[tab->i] == 'p')
+	else if (tab->format[tab->i] == 'p')
 		ft_printf_p(tab);
-	if (tab->format[tab->i] == 'd' || tab->format[tab->i] == 'i')
+	else if (tab->format[tab->i] == 'd' || tab->format[tab->i] == 'i')
 		ft_printf_id(tab);
-	if (tab->format[tab->i] == 'x')
+	else if (tab->format[tab->i] == 'x')
 		ft_printf_h(tab);
-	if (tab->format[tab->i] == 'X')
+	else if (tab->format[tab->i] == 'X')
 	{
 		tab->upperx = 1;
 		ft_printf_h(tab);
 	}
+	else if (tab->format[tab->i] == 'u')
+		ft_print_u(tab);
 }

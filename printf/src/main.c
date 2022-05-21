@@ -119,9 +119,11 @@ int	main(void)
 	int x;
 	int y;
 
-	x = ft_printf("%X", -1);
+	x = ft_printf("%5%");
+	printf("%s", "$");
 	printf("\n");
-	y = printf("%X", -1);
+	y = printf("%5%");
+	printf("%s", "$");
 	printf("\n");
 	printf("%d----%d", x, y);
 	return (0);

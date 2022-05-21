@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 22:02:32 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/17 22:03:34 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/20 17:50:15 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,22 @@ void ft_printf_p(t_printf *tab)
 	if (!ptr)
 		tab->lenght += write(1, "0", 1);
 	else
-		tab->lenght += ft_putptr(ptr);
-	
+	{
+		ft_putptr(ptr);
+		tab->lenght += ft_ptrlen(ptr);
+		if (tab->minus)
+		{
+			while((tab->width - ft_ptrlen(ptr)) - 2 > 0)
+			{
+				tab->lenght += write (1, " ", 1);
+				tab->width--;
+			}
+		}
+	}
 }
 
-int	ft_putptr(unsigned long ptr)
+void	ft_putptr(unsigned long ptr)
 {
-	int	len;
-	unsigned long	n;
-
-	len = 0;
-	n = ptr;
 	if (ptr >= 16)
 	{
 		ft_putptr(ptr / 16);
@@ -44,9 +49,16 @@ int	ft_putptr(unsigned long ptr)
 		else
 			ft_putchar_fd((ptr -10 + 'a'), 1);
 	}
-	while (n != 0)
+}
+
+int	ft_ptrlen(unsigned long ptr)
+{
+	int len;
+
+	len = 0;
+	while (ptr!= 0)
 	{
-		n /= 16;
+		ptr /= 16;
 		len++;
 	}
 	return (len);

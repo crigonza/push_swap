@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 18:52:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/19 19:29:16 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/20 21:46:01 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,52 @@
 
 void	ft_printf_h(t_printf *tab)
 {
-	unsigned long	hex;
+	unsigned int	hex;
     int i;
+	int	len;
 
     i = tab->upperx;
-	hex = (unsigned long)va_arg(tab->arg, unsigned long);
+	hex = (unsigned int)va_arg(tab->arg, unsigned int);
+	len = ft_hexlen(hex);
 	if (!hex)
 		tab->lenght += write(1, "0", 1);
 	else
-		tab->lenght += ft_puthex(hex, i);
+	{
+		if (tab->sharp)
+		{
+			if(i == 0)
+				tab->lenght += write(1, "0x", 2);
+			else
+				tab->lenght += write(1, "0X", 2);
+		}
+		else if (tab->precision || tab->zero)
+		{
+			while(tab->width - len > 0)
+			{
+				tab->lenght += write(1, "0", 1);
+				tab->width --;
+			}
+		}
+		ft_puthex(hex, i);
+		if (tab->minus)
+		{
+			while(tab->width - len > 0)
+			{
+				tab->lenght += write(1, " ", 1);
+				tab->width --;
+			}
+
+		}
+		tab->lenght += len;
+	}
 }
 
-int	ft_puthex(unsigned long hex, int upper)
+void	ft_puthex(unsigned int hex, int upper)
 {
-	int len;
-	unsigned long n;
-
-	len = 0;
-	n = hex;
 	if (hex >= 16)
 	{
-		ft_putptr(hex / 16);
-		ft_putptr(hex % 16);
+		ft_puthex(hex / 16, upper);
+		ft_puthex(hex % 16, upper);
 	}
 	else
 	{
@@ -49,9 +73,16 @@ int	ft_puthex(unsigned long hex, int upper)
 				ft_putchar_fd((hex - 10 + 'A'), 1);
 		}
 	}
-	while (n != 0)
+}
+
+int ft_hexlen(unsigned int hex)
+{
+	int len;
+
+	len = 0;
+	while (hex != 0)
 	{
-		n /= 16;
+		hex /= 16;
 		len++;
 	}
 	return (len);
