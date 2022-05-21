@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:41:53 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/21 08:43:38 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/21 13:57:56 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,20 @@ void	ft_check_format(t_printf *tab)
 			if (tab->format[tab->i-1] == '%')
 			{
 				tab->precision = 1;
-				ft_width(tab);
+				if(ft_isdigit(tab->format[tab->i+1]))
+					ft_width(tab);
 			}
 			else
+			{
 				tab->point = 1;
+				if(ft_isdigit(tab->format[tab->i+1]))
+				{
+					if(tab->minus)
+						tab->minfw = tab->width;
+					ft_width(tab);
+				}
+				
+			}
 		}
 		else if (tab->format[tab->i] == '+')
 			tab->plus = 1;
@@ -58,20 +68,23 @@ void	ft_check_format(t_printf *tab)
 			tab->sharp = 1;
 		else if (tab->format[tab->i] == ' ')
 			tab->space = 1;
-			else if (tab->format[tab->i] == '-')
+		else if (tab->format[tab->i] == '-')
 		{
 			tab->minus = 1;
-			ft_width(tab);
+			if(ft_isdigit(tab->format[tab->i+1]))
+				ft_width(tab);
 		}
 		else if (tab->format[tab->i] == '0')
 		{
 			tab->zero = 1;
-			ft_width(tab);
+			if(ft_isdigit(tab->format[tab->i+1]))
+				ft_width(tab);
 		}
 		else if (ft_isdigit(tab->format[tab->i]))
 		{
-			tab->minfw = 1;
 			ft_width(tab);
+			tab->minfw = tab->width;
+			tab->width = 0;
 		}
 		tab->i++;
 	}
@@ -80,10 +93,11 @@ void	ft_check_format(t_printf *tab)
 
 void	ft_width(t_printf *tab)
 {
-	if (tab->precision || tab->minus || tab->zero)
+	if (tab->precision || tab->minus || tab->zero || tab->point)
 		tab->i ++;
 	if (ft_isdigit(tab->format[tab->i]))
 		{
+			tab->width = 0;
 			tab->width += ft_atoi(&tab->format[tab->i]);
 			while (ft_isdigit(tab->format[tab->i]))
 				tab->i++;

@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 20:47:47 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/21 08:41:55 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/21 11:11:17 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_printf_c(t_printf *tab)
 	else
 		c = va_arg(tab->arg, int);
 	if (tab->minfw)
-			tab->lenght += ft_put_sp(tab->width - 1);
+			tab->lenght += ft_put_sp(tab->minfw - 1);
 	tab->lenght += write(1, &c, 1);
 	if (tab->minus)
 			tab->lenght += ft_put_sp(tab->width - 1);

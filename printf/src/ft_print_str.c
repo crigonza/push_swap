@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 20:49:51 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/21 08:14:23 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/21 13:55:12 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,31 @@ void	ft_printf_s(t_printf *tab)
 	str = va_arg(tab->arg, char *);
 	if (!str)
 		str = "(null)";
-	if (tab->minfw)
+	if (tab->minfw && !tab->point)
 	{
-		// if (tab->space)
-		// tab->lenght += write(1, " ", 1); 
-		i = tab->width - ft_strlen(str);
+		i = tab->minfw - ft_strlen(str);
 		tab->lenght += ft_put_sp(i);
+		tab->lenght += write(1, str, ft_strlen(str));
 	}
-	tab->lenght += write(1, str, ft_strlen(str));
+	else if (tab->precision)
+		if (tab->width < (int)ft_strlen(str))
+			tab->lenght += write(1, str, tab->width);
+		else
+			tab->lenght += write(1, str, ft_strlen(str));
+	else if (tab->point && tab->width)
+	{
+		if (tab->width > (int)ft_strlen(str))
+			tab->width = ft_strlen(str);
+		if (tab->minfw && !tab->minus)
+			tab->lenght += ft_put_sp(tab->minfw - tab->width);
+		tab->lenght += write(1, str, tab->width);
+		if (tab->minus)
+			tab->lenght += ft_put_sp(tab->minfw - tab->width);
+	}
+	else if (tab->minfw && !tab->width)
+			tab->lenght += ft_put_sp(tab->minfw);
+	else
+		tab->lenght += write(1, str, ft_strlen(str));
 	if (tab->minus)
 	{
 		i = tab->width - ft_strlen(str);

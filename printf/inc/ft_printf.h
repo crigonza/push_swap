@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:44:36 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/21 08:38:05 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/21 13:38:03 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../Libft/libft.h"
 # include <stdarg.h>
-# include <limits.h>
 
 typedef struct s_printf
 {

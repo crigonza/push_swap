@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 18:52:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/20 21:46:01 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/21 10:00:35 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_printf_h(t_printf *tab)
 			}
 		}
 		ft_puthex(hex, i);
-		if (tab->minus)
+		if (tab->minus && tab->width)
 		{
 			while(tab->width - len > 0)
 			{
