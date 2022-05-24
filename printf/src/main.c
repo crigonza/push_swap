@@ -113,15 +113,39 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*sstr;
+	size_t	i;
+	size_t	slen;
+
+	if (!s)
+		return (NULL);
+	slen = ft_strlen(s);
+	if (slen > len)
+		slen = len;
+	sstr = (char *)malloc(slen * sizeof(char) + 1);
+	if (!sstr)
+		return (NULL);
+	i = 0;
+	while (i < len && start < ft_strlen(s))
+	{
+		sstr[i] = s[start];
+		start++;
+		i++;
+	}
+	sstr[i] = '\0';
+	return (sstr);
+}
 
 int	main(void)
 {
 	int x;
 	int y;
 
-	x = ft_printf("%3.s", NULL);
+	x = ft_printf("%32s", "abc");
 	printf("\n");
-	y = printf("%3.s", NULL);
+	y = printf("%32s", "abc");
 	printf("\n");
 	printf("%d----%d", x, y);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 20:47:47 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/21 11:11:17 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/23 21:20:09 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_printf_c(t_printf *tab)
 {
-	int c;
+	int	c;
 
 	if (tab->percent)
 		c = '%';

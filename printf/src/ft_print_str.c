@@ -6,13 +6,13 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 20:49:51 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/21 13:55:12 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:56:00 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	ft_printf_s(t_printf *tab)
+void	ft_print_s(t_printf *tab)
 {
 	char *str;
 	int	i;
@@ -20,6 +20,8 @@ void	ft_printf_s(t_printf *tab)
 	str = va_arg(tab->arg, char *);
 	if (!str)
 		str = "(null)";
+	if (!tab->width && !tab->minfw && tab->point)
+		return;
 	if (tab->minfw && !tab->point)
 	{
 		i = tab->minfw - ft_strlen(str);
@@ -27,10 +29,12 @@ void	ft_printf_s(t_printf *tab)
 		tab->lenght += write(1, str, ft_strlen(str));
 	}
 	else if (tab->precision)
+	{
 		if (tab->width < (int)ft_strlen(str))
 			tab->lenght += write(1, str, tab->width);
 		else
 			tab->lenght += write(1, str, ft_strlen(str));
+	}
 	else if (tab->point && tab->width)
 	{
 		if (tab->width > (int)ft_strlen(str))
