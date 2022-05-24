@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:41:53 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/23 20:14:58 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/24 19:47:28 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,7 @@ void	ft_check_format(t_printf *tab)
 	while (!ft_strchr(SPECIFIERS, tab->format[tab->i]))
 	{
 		if (tab->format[tab->i] == '.')
-		{
-			if (tab->format[tab->i-1] == '%')
-			{
-				tab->precision = 1;
-				if(ft_isdigit(tab->format[tab->i+1]))
-					ft_width(tab);
-			}
-			else
-			{
-				tab->point = 1;
-				if(tab->minus || tab->zero)
-				{
-					tab->minfw = tab->width;
-					tab->width = 0;
-				}
-				if(ft_isdigit(tab->format[tab->i+1]))
-					ft_width(tab);
-			}
-		}
+			ft_point(tab);
 		else if (tab->format[tab->i] == '+')
 			tab->plus = 1;
 		else if (tab->format[tab->i] == '#')
@@ -130,3 +112,25 @@ void	ft_check_conv(t_printf *tab)
 	else if (tab->format[tab->i] == 'u')
 		ft_print_u(tab);
 }
+
+void ft_point(t_printf *tab)
+{
+	if (tab->format[tab->i-1] == '%')
+	{
+		tab->precision = 1;
+		if(ft_isdigit(tab->format[tab->i+1]))
+			ft_width(tab);
+	}
+	else
+	{
+		tab->point = 1;
+		if(tab->minus || tab->zero)
+		{
+			tab->minfw = tab->width;
+			tab->width = 0;
+		}
+		if(ft_isdigit(tab->format[tab->i+1]))
+			ft_width(tab);
+	}
+}
+

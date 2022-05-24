@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 18:52:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/23 18:12:08 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/24 17:26:11 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,61 +15,71 @@
 void	ft_printf_h(t_printf *tab)
 {
 	unsigned int	hex;
-    int i;
-	int	len;
+	int				i;
+	int				len;
 
-    i = tab->upperx;
+	i = tab->upperx;
 	hex = (unsigned int)va_arg(tab->arg, unsigned int);
 	len = ft_hexlen(hex);
 	if (!hex && !tab->width && tab->precision)
-		return;
+		return ;
 	if (tab->point && !hex && !tab->width)
 	{
 		tab->lenght += ft_put_sp(tab->minfw);
-		return;
+		return ;
 	}
+	if (tab->sharp)
+	{
+		if (i == 0)
+			tab->lenght += write(1, "0x", 2);
+		else
+			tab->lenght += write(1, "0X", 2);
+	}
+	ft_print_hex(tab, hex, i);
+}
+
+void	ft_print_hex(t_printf *tab, unsigned int hex, int i)
+{
 	if (!tab->minus)
 	{
-		if (tab->sharp)
-		{
-			if(i == 0)
-				tab->lenght += write(1, "0x", 2);
-			else
-				tab->lenght += write(1, "0X", 2);
-		}
-		else if ((tab->precision || tab->zero) && !tab->minfw)
-			tab->lenght += ft_put_zeros(tab->width - len);
+		if ((tab->precision || tab->zero) && !tab->minfw)
+			tab->lenght += ft_put_zeros(tab->width - ft_hexlen(hex));
 		else if (tab->minfw && !tab->minus)
 		{
 			if (tab->width)
 			{
-				if(tab->width < len)
-					tab->width = len;
+				if (tab->width < ft_hexlen(hex))
+					tab->width = ft_hexlen(hex);
 				tab->lenght += ft_put_sp(tab->minfw - tab->width);
-				tab->lenght += ft_put_zeros(tab->width - len);
+				tab->lenght += ft_put_zeros(tab->width - ft_hexlen(hex));
 			}
 			else
-				tab->lenght += ft_put_sp(tab->minfw - len);
+				tab->lenght += ft_put_sp(tab->minfw - ft_hexlen(hex));
 		}
 		ft_puthex(hex, i);
 	}
+	ft_print_hex_(tab, hex, i);
+}
+
+void	ft_print_hex_(t_printf *tab, unsigned int hex, int i)
+{
 	if (tab->minus)
 	{
-		if (tab->point) 
+		if (tab->point)
 		{
-			if (tab->width < len && hex)
-				tab->width = len;
-			tab->lenght += ft_put_zeros(tab->width - len);
+			if (tab->width < ft_hexlen(hex) && hex)
+				tab->width = ft_hexlen(hex);
+			tab->lenght += ft_put_zeros(tab->width - ft_hexlen(hex));
 			ft_puthex(hex, i);
 			tab->lenght += ft_put_sp(tab->minfw - tab->width);
 		}
 		else
 		{
 			ft_puthex(hex, i);
-			tab->lenght += ft_put_sp(tab->width - len);
+			tab->lenght += ft_put_sp(tab->width - ft_hexlen(hex));
 		}
 	}
-	tab->lenght += len;
+	tab->lenght += ft_hexlen(hex);
 }
 
 void	ft_puthex(unsigned int hex, int upper)
@@ -93,9 +103,9 @@ void	ft_puthex(unsigned int hex, int upper)
 	}
 }
 
-int ft_hexlen(unsigned int hex)
+int	ft_hexlen(unsigned int hex)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (!hex)

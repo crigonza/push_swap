@@ -6,17 +6,17 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 22:02:32 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/23 21:15:12 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/24 17:06:07 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../inc/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 void	ft_printf_p(t_printf *tab)
 {
 	unsigned long	ptr;
 
-	ptr = (unsigned long) va_arg(tab->arg, unsigned long);
+	ptr = (unsigned long)va_arg(tab->arg, unsigned long);
 	if (tab->minfw)
 	{
 		if (ptr)
@@ -53,7 +53,7 @@ void	ft_putptr(unsigned long ptr)
 		if (ptr <= 9)
 			ft_putchar_fd((ptr + '0'), 1);
 		else
-			ft_putchar_fd((ptr -10 + 'a'), 1);
+			ft_putchar_fd((ptr - 10 + 'a'), 1);
 	}
 }
 

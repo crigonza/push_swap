@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 20:49:51 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/23 20:56:00 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/24 19:40:17 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 void	ft_print_s(t_printf *tab)
 {
-	char *str;
-	int	i;
+	char	*str;
 
 	str = va_arg(tab->arg, char *);
 	if (!str)
 		str = "(null)";
 	if (!tab->width && !tab->minfw && tab->point)
-		return;
+		return ;
+	ft_print_str(tab, str);
+}
+
+void	ft_print_str(t_printf *tab, char *str)
+{
 	if (tab->minfw && !tab->point)
 	{
-		i = tab->minfw - ft_strlen(str);
-		tab->lenght += ft_put_sp(i);
+		tab->lenght += ft_put_sp(tab->minfw - ft_strlen(str));
 		tab->lenght += write(1, str, ft_strlen(str));
 	}
 	else if (tab->precision)
@@ -36,35 +39,37 @@ void	ft_print_s(t_printf *tab)
 			tab->lenght += write(1, str, ft_strlen(str));
 	}
 	else if (tab->point && tab->width)
-	{
-		if (tab->width > (int)ft_strlen(str))
-			tab->width = ft_strlen(str);
-		if (tab->minfw && !tab->minus)
-			tab->lenght += ft_put_sp(tab->minfw - tab->width);
-		tab->lenght += write(1, str, tab->width);
-		if (tab->minus)
-			tab->lenght += ft_put_sp(tab->minfw - tab->width);
-	}
+		ft_point_width(tab, str);
 	else if (tab->minfw && !tab->width)
-			tab->lenght += ft_put_sp(tab->minfw);
+		tab->lenght += ft_put_sp(tab->minfw);
 	else
 		tab->lenght += write(1, str, ft_strlen(str));
 	if (tab->minus)
-	{
-		i = tab->width - ft_strlen(str);
-		tab->lenght += ft_put_sp(i);
-	}
+		tab->lenght += ft_put_sp(tab->width - ft_strlen(str));
 }
-int ft_put_sp(int width)
-{
-	int len;
 
-	len = 0;
-	while (width > 0)
-	{
-		write(1, " ", 1);
-		width--;
-		len ++;
-	}
-	return (len);
+void	ft_point_width(t_printf *tab, char *str)
+{
+	if (tab->width > (int)ft_strlen(str))
+		tab->width = ft_strlen(str);
+	if (tab->minfw && !tab->minus)
+		tab->lenght += ft_put_sp(tab->minfw - tab->width);
+	tab->lenght += write(1, str, tab->width);
+	if (tab->minus)
+		tab->lenght += ft_put_sp(tab->minfw - tab->width);
+}
+
+void	ft_printf_c(t_printf *tab)
+{
+	int	c;
+
+	if (tab->percent)
+		c = '%';
+	else
+		c = va_arg(tab->arg, int);
+	if (tab->minfw)
+			tab->lenght += ft_put_sp(tab->minfw - 1);
+	tab->lenght += write(1, &c, 1);
+	if (tab->minus)
+			tab->lenght += ft_put_sp(tab->width - 1);
 }

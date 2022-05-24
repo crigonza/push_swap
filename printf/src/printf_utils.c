@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ini_reset.c                                     :+:      :+:    :+:   */
+/*   printf_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 20:53:03 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/21 08:38:47 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/24 17:33:12 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,32 @@ void	ft_reset(t_printf *tab)
 	tab->upperx = 0;
 	tab->minfw = 0;
 	tab->percent = 0;
+}
+
+int ft_put_sp(int width)
+{
+	int len;
+
+	len = 0;
+	while (width > 0)
+	{
+		write(1, " ", 1);
+		width--;
+		len ++;
+	}
+	return (len);
+}
+
+int	ft_put_zeros(int len)
+{
+	int i;
+
+	i = 0;
+	while(len > 0)
+	{
+		write(1, "0", 1);
+		len --;
+		i ++;
+	}
+	return (i);
 }
