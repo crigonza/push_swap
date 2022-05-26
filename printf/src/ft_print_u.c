@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 21:48:32 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/24 16:58:29 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/26 08:13:51 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	ft_print_u(t_printf *tab)
 
 char	*ft_uitoa(unsigned int num)
 {
-	unsigned int n;
-	int i;
-	char *strnum;
+	unsigned int	n;
+	int				i;
+	char			*strnum;
 
 	i = 0;
 	n = num;
@@ -61,4 +61,13 @@ char	*ft_uitoa(unsigned int num)
 		i--;
 	}
 	return (strnum);
+}
+
+long	ft_neg_num(t_printf *tab, long nb)
+{
+	nb = -nb;
+	tab->lenght += write(1, "-", 1);
+	if (tab->zero)
+		tab->width--;
+	return (nb);
 }

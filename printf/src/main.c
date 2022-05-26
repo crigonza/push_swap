@@ -143,9 +143,9 @@ int	main(void)
 	int x;
 	int y;
 
-	x = ft_printf("%32s", "abc");
+	x = ft_printf("%.20d", INT_MIN);
 	printf("\n");
-	y = printf("%32s", "abc");
+	y = printf("%.20d", INT_MIN);
 	printf("\n");
 	printf("%d----%d", x, y);
 	return (0);

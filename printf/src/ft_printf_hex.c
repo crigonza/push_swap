@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 18:52:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/24 17:26:11 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/25 20:13:59 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ void	ft_printf_h(t_printf *tab)
 {
 	unsigned int	hex;
 	int				i;
-	int				len;
 
 	i = tab->upperx;
 	hex = (unsigned int)va_arg(tab->arg, unsigned int);
-	len = ft_hexlen(hex);
 	if (!hex && !tab->width && tab->precision)
 		return ;
 	if (tab->point && !hex && !tab->width)
@@ -28,7 +26,7 @@ void	ft_printf_h(t_printf *tab)
 		tab->lenght += ft_put_sp(tab->minfw);
 		return ;
 	}
-	if (tab->sharp)
+	if (tab->sharp && hex)
 	{
 		if (i == 0)
 			tab->lenght += write(1, "0x", 2);

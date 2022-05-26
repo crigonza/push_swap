@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 20:53:03 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/24 17:33:12 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/24 21:13:39 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	ft_reset(t_printf *tab)
 	tab->percent = 0;
 }
 
-int ft_put_sp(int width)
+int	ft_put_sp(int width)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (width > 0)
@@ -66,14 +66,28 @@ int ft_put_sp(int width)
 
 int	ft_put_zeros(int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(len > 0)
+	while (len > 0)
 	{
 		write(1, "0", 1);
 		len --;
 		i ++;
 	}
 	return (i);
+}
+
+void	ft_width(t_printf *tab)
+{
+	if (tab->precision || tab->minus || tab->zero || tab->point)
+		tab->i ++;
+	tab->width = 0;
+	if (ft_isdigit(tab->format[tab->i]))
+	{
+		tab->width += ft_atoi(&tab->format[tab->i]);
+		while (ft_isdigit(tab->format[tab->i]))
+			tab->i++;
+		tab->i--;
+	}
 }
