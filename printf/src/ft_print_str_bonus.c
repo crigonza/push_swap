@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_print_str_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 20:49:51 by crigonza          #+#    #+#             */
-/*   Updated: 2022/05/26 17:13:26 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/05/26 18:15:10 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "../inc/ft_printf_bonus.h"
 
 void	ft_print_s(t_printf *tab)
 {
