@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_check_parse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/08 17:59:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/11 10:07:49 by crigonza         ###   ########.fr       */
+/*   Created: 2022/06/11 10:04:07 by crigonza          #+#    #+#             */
+/*   Updated: 2022/06/11 10:09:28 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../Libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
+#include "../inc/push_swap.h"
 
-typedef struct  s_stack
+int *ft_parse(int argc, char **argv)
 {
-      int               nb;
-      struct s_stack *next;
-}                   t_stack;
+    int *array;
+    int i;
 
-int         main(int argc, char **argv);
-int         *ft_parse(int argc, char **argv);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# endif
+    i = 0;
+    array = (int *)malloc(sizeof(int) * argc);
+    if(!array)
+        return(0);
+    while (i < argc)
+    {
+        array[i] = ft_atoi(argv[i]);
+    }
+    return (array);
+}
