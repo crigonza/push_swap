@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 22:39:41 by crigonza          #+#    #+#              #
-#    Updated: 2022/06/11 10:08:49 by crigonza         ###   ########.fr        #
+#    Updated: 2022/06/11 12:28:04 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,11 @@ INC_DIR = inc
 
 OBJ_DIR = obj
 
-SRC = main.c  ft_check_parse.c \
+SRC = main.c ft_check_parse.c \
 
-SRCS = $(addprefix $(SRC_DIR)/,$(SRC))
+SRCS = $(addprefix $(SRC_DIR)/,$(SRC)) 
 
-OBJS = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
+OBJS = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o)) 
 
 all: $(NAME)
 

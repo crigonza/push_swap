@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 09:52:48 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/11 10:12:11 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/13 22:02:33 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,41 @@
 
 int main (int argc, char **argv)
 {
-    int *nbarray;
-    int i;
-
-    i = 0;
-    nbarray = ft_parse(argc - 1, argv);
-    while(i < argc-1)
+    t_stack     *stack_a;
+    t_stack     *stack_b;
+    int         *nbarray;
+    
+    stack_b = NULL;
+    nbarray = ft_parse(argc, argv);
+    if(!nbarray)
     {
-        printf("%d**", nbarray[i]);
-        i++;
+        ft_putendl_fd("Error", 2);
+        return (0);
     }
+    nbarray = ft_simplify_nbs(nbarray);
+    stack_a = ft_stack(nbarray, argc);
+    if (ft_is_sorted(&stack_a))
+        return (0);
+    ft_push_b(&stack_a, &stack_b);
+    ft_push_b(&stack_a, &stack_b);
+    ft_push_b(&stack_a, &stack_b);
+    ft_push_a(&stack_a, &stack_b);
+    while(stack_a->next)
+    {
+        printf("%d**", stack_a->nb);
+        stack_a = stack_a->next;
+    }
+    //printf("%d**", stack_a->nb);
+    printf("\n");
+    while(stack_b->next)
+    {
+        printf("%d**", stack_b->nb);
+        stack_b = stack_b->next;
+    }
+    //printf("%d**", stack_b->nb);
+    free(nbarray);
+    //free(stack_a);
+    return (0);
 
 
 }
