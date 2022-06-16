@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:41:37 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/13 19:56:48 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/15 21:23:04 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,7 @@ void    ft_rotate_a(t_stack **stack)
         tmp = tmp->next;
     }
     tmp->nb = nb;
-    printf("  %d  ",tmp->nb);
     ft_putendl_fd("ra", 2);
-    /* t_stack *tmp;
-    t_stack *aux;
-    int nb;
-
-    tmp = *stack;
-    nb = tmp->nb;
-    printf("  %d  ", nb);
-    *stack = tmp->next;
-    free (tmp->prev);
-    tmp->prev = NULL;
-    aux = ft_new_node(nb);
-    ft_stack_add_node(&tmp, aux); */
 }
 
 void    ft_rotate_b(t_stack **stack)
@@ -66,7 +53,6 @@ void    ft_rotate_b(t_stack **stack)
         tmp = tmp->next;
     }
     tmp->nb = nb;
-    printf("  %d  ",tmp->nb);
     ft_putendl_fd("rb", 2);
 }
 
@@ -92,7 +78,6 @@ void    ft_rev_rot_a(t_stack **stack)
         tmp = tmp->prev;
     }
     tmp->nb = nb;
-    printf("  %d  ",tmp->nb);
     ft_putendl_fd("rra", 2);
 }
 
@@ -111,7 +96,6 @@ void    ft_rev_rot_b(t_stack **stack)
         tmp = tmp->prev;
     }
     tmp->nb = nb;
-    printf("  %d  ",tmp->nb);
     ft_putendl_fd("rrb", 2);
 }
 

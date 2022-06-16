@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:59:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/13 22:02:27 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/15 22:31:06 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ int         *ft_parse(int argc, char **argv);
 int         ft_num_is_in(int *temp, int i);
 int         ft_int_is_valid(char *number);
 int         ft_is_sorted(t_stack **stack);
-int         *ft_simplify_nbs(int *numbers);
+int         *ft_copy(int *numbers, int size);
+int         *ft_order_copy (int *copy, int size);
+int         *ft_simplify_nbs(int *numbers, int *copy, int size);
 t_stack     *ft_stack(int *numbers, int size);
 t_stack     *ft_new_node(int number);
 void        ft_stack_add_node(t_stack **stack, t_stack *node);
@@ -46,6 +48,10 @@ void        ft_push_b(t_stack **stack_a, t_stack **stack_b);
 void        ft_push_a(t_stack **stack_a, t_stack **stack_b);
 void        ft_rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void        ft_rev_rot_ab(t_stack **stack_a, t_stack **stack_b);
+void        ft_sort_small_stack(t_stack **a, t_stack **b, int size);
+void        ft_sort_three(t_stack **a);
+void        ft_sort_five(t_stack **a, t_stack **b);
+void        ft_sort_five_(t_stack **a);
 
 
 
