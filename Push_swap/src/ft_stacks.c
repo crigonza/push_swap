@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:36:44 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/16 18:23:30 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/24 18:52:52 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,15 @@ void	ft_add_top(t_stack **stack, t_stack *node)
     aux->next = node;
     node->next = NULL;
     node->prev = aux; */
+}
+
+void ft_free_stack(t_stack **stack)
+{
+    t_stack *temp;
+
+    temp = *stack;
+    *stack = temp->next;
+    free(temp);
+    if(*stack != 0)
+        ft_free_stack(stack);
 }

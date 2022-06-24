@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:41:37 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/16 18:22:30 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/24 18:13:10 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ void	ft_rev_rot_a(t_stack **stack)
 	int		nb;
 
 	tmp = *stack;
-	while (tmp->next->next)
+	while (tmp->next != 0)
 		tmp = tmp->next;
 	nb = tmp->nb;
-	while (tmp->prev->prev)
+	while (tmp->prev != 0)
 	{
 		tmp->nb = tmp->prev->nb;
 		tmp = tmp->prev;
@@ -87,10 +87,10 @@ void	ft_rev_rot_b(t_stack **stack)
 	int		nb;
 
 	tmp = *stack;
-	while (tmp->next->next)
+	while (tmp->next != 0)
 		tmp = tmp->next;
 	nb = tmp->nb;
-	while (tmp->prev)
+	while (tmp->prev != 0)
 	{
 		tmp->nb = tmp->prev->nb;
 		tmp = tmp->prev;
