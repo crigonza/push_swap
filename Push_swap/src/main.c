@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 09:52:48 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/27 21:31:47 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/28 19:07:20 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 	ft_push_b(&stack_a, &stack_b);
 	ft_rotate_a(&stack_a);
 	ft_push_b(&stack_a, &stack_b); */
-	printf("\n");
+	/* printf("\n");
 	while (stack_a->next != 0)
 	{
 		printf("%d**", stack_a->nb);
@@ -67,7 +67,7 @@ int	main(int argc, char **argv)
         printf("%d**", stack_b->nb);
         stack_b = stack_b->next;
     }
-    printf("%d**", stack_b->nb); 
+    printf("%d**", stack_b->nb);  */
 	free(nbarray);
 	//ft_free_stack(&stack_a);
 	//ft_free_stack(&stack_b);

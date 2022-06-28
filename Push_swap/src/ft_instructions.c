@@ -6,13 +6,13 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:41:37 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/27 21:08:47 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/28 18:37:44 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ft_swap_a(t_stack **stack)
+void	ft_swap(t_stack **stack, char c)
 {
 	t_stack	*tmp;
 	int		swap;
@@ -21,10 +21,13 @@ void	ft_swap_a(t_stack **stack)
 	swap = tmp->next->nb;
 	tmp->next->nb = tmp->nb;
 	tmp->nb = swap;
-	ft_putendl_fd("sa", 2);
+	if (c == 'a')
+		ft_putendl_fd("sa", 2);
+	else if (c == 'b')
+		ft_putendl_fd("sb", 2);
 }
 
-void	ft_rotate_a(t_stack **stack)
+void	ft_rotate(t_stack **stack, char c)
 {
 	t_stack	*tmp;
 	int		nb;
@@ -37,7 +40,10 @@ void	ft_rotate_a(t_stack **stack)
 		tmp = tmp->next;
 	}
 	tmp->nb = nb;
-	ft_putendl_fd("ra", 2);
+	if (c == 'a')
+		ft_putendl_fd("ra", 2);
+	else if (c == 'b')
+		ft_putendl_fd("rb", 2);
 }
 
 void	ft_rotate_b(t_stack **stack)
@@ -58,17 +64,15 @@ void	ft_rotate_b(t_stack **stack)
 
 void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_rotate_a(stack_a);
-	ft_rotate_b(stack_b);
+	ft_rotate(stack_a, 'a');
+	ft_rotate(stack_b, 'b');
 	ft_putendl_fd("rr", 2);
 }
 
-void	ft_rev_rot_a(t_stack **stack)
+void	ft_rev_rot(t_stack **stack, char c)
 {
-	//t_stack	*tmp;
 	int		nb;
 
-	//tmp = *stack;
 	while ((*stack)->next != 0)
 		(*stack) = (*stack)->next;
 	nb = (*stack)->nb;
@@ -78,7 +82,10 @@ void	ft_rev_rot_a(t_stack **stack)
 		(*stack) = (*stack)->prev;
 	}
 	(*stack)->nb = nb;
-	ft_putendl_fd("rra", 2);
+	if (c == 'a')
+		ft_putendl_fd("rra", 2);
+	else if (c == 'b')
+		ft_putendl_fd("rrb", 2);
 }
 
 void	ft_rev_rot_b(t_stack **stack)
@@ -101,7 +108,7 @@ void	ft_rev_rot_b(t_stack **stack)
 
 void	ft_rev_rot_ab(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_rev_rot_a(stack_a);
-	ft_rev_rot_b(stack_b);
+	ft_rev_rot(stack_a, 'a');
+	ft_rev_rot(stack_b, 'b');
 	ft_putendl_fd("rrr", 2);
 }

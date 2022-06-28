@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 20:31:04 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/16 18:23:23 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/28 18:41:10 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,23 @@ void	ft_sort_three(t_stack **a)
 	{
 		if ((*a)->nb < (*a)->next->next->nb)
 		{
-			ft_swap_a(a);
-			ft_rotate_a(a);
+			ft_swap(a, 'a');
+			ft_rotate(a, 'a');
 		}
 		else
-			ft_rev_rot_a(a);
+			ft_rev_rot(a, 'a');
 	}
 	else if ((*a)->nb > (*a)->next->nb)
 	{
 		if ((*a)->next->nb > (*a)->next->next->nb)
 		{
-			ft_swap_a(a);
-			ft_rev_rot_a(a);
+			ft_swap(a, 'a');
+			ft_rev_rot(a, 'a');
 		}
 		else if ((*a)->nb < (*a)->next->next->nb)
-			ft_swap_a(a);
+			ft_swap(a, 'a');
 		else
-			ft_rotate_a(a);
+			ft_rotate(a, 'a');
 	}
 }
 
@@ -62,24 +62,24 @@ void	ft_sort_five_(t_stack **a)
 	if ((*a)->nb > (*a)->next->nb)
 	{
 		if ((*a)->nb < (*a)->next->next->nb)
-			ft_swap_a(a);
+			ft_swap(a, 'a');
 		else if ((*a)->nb > (*a)->next->next->nb)
 		{
 			if ((*a)->next->next->next->next == NULL)
 			{
 				if ((*a)->nb > (*a)->next->next->next->nb)
-					ft_rotate_a(a);
+					ft_rotate(a, 'a');
 			}
 			else
 			{
 				if ((*a)->nb > (*a)->next->next->next->next->nb)
-					ft_rotate_a(a);
+					ft_rotate(a, 'a');
 				else
 				{
-					ft_rev_rot_a(a);
-					ft_swap_a(a);
-					ft_rotate_a(a);
-					ft_rotate_a(a);
+					ft_rev_rot(a, 'a');
+					ft_swap(a, 'a');
+					ft_rotate(a, 'a');
+					ft_rotate(a, 'a');
 				}
 			}
 		}

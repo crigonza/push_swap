@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:57:24 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/27 21:30:07 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/28 18:34:29 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,16 @@ void    ft_push_b(t_stack **stack_a, t_stack **stack_b)
 
 void    ft_push_a(t_stack **stack_a, t_stack **stack_b)
 {
-    t_stack *b;
     t_stack *tmp;
-    int nb;
 
-    b = *stack_b;
-    nb = b->nb;
-    tmp = ft_new_node(nb);
-    *stack_b = b->next;
-    free(b->prev);
-    b->prev = NULL;
-    ft_add_top(stack_a, tmp);
+    tmp = *stack_b;
+    *stack_b = (*stack_b)->next;
+    if(*stack_b)
+        (*stack_b)->prev = NULL;
+    if(*stack_a)
+        (*stack_a)->prev = tmp;
+    tmp->next = *stack_a;
+    *stack_a = tmp;
+    (*stack_a)->prev = NULL;
     ft_putendl_fd("pa", 2);
 }

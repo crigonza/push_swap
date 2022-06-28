@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:59:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/27 18:52:49 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/28 18:29:35 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ t_stack		*ft_stack(int *numbers, int size);
 t_stack     *ft_new_node(int number);
 void		ft_stack_add_node(t_stack **stack, t_stack *node);
 void		ft_add_top(t_stack **stack, t_stack *node);
-void		ft_swap_a(t_stack **stack);
-void		ft_rotate_a(t_stack **stack);
+void		ft_swap(t_stack **stack, char c);
+void		ft_rotate(t_stack **stack, char c);
 void		ft_rotate_b(t_stack **stack);
-void		ft_rev_rot_a(t_stack **stack);
+void		ft_rev_rot(t_stack **stack, char c);
 void		ft_rev_rot_b(t_stack **stack);
 void		ft_push_b(t_stack **stack_a, t_stack **stack_b);
 void		ft_push_a(t_stack **stack_a, t_stack **stack_b);
@@ -54,7 +54,7 @@ void        ft_select_nb(t_stack **a, t_stack **b, int max);
 void		ft_free_stack(t_stack **stack);
 void	    ft_sort_to_a(t_stack **a, t_stack **b, int number);
 
-//void		ft_prepare_push(t_stack **a, t_stack **b);
+void		ft_prepare_push(t_stack **a, t_stack **b);
 int		ft_search_top(t_stack **a, int max);
 int		ft_search_top_(t_stack **b, int number);
 int		ft_search_botton(t_stack **a, int max);
