@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:36:44 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/24 18:52:52 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:02:34 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*ft_stack(int *numbers, int size)
 
 	i = 0;
 	stack = NULL;
-	while (i < size)
+	while (i < size - 1)
 	{
 		temp = ft_new_node(numbers[i]);
 		ft_stack_add_node(&stack, temp);
@@ -63,17 +63,12 @@ void	ft_add_top(t_stack **stack, t_stack *node)
 {
 	if (*stack == NULL)
 	{
-		*stack = node;
+		(*stack) = node;
 		return ;
 	}
 	node->next = *stack;
 	(*stack)->prev = node;
 	*stack = node;
-	/*   while (aux->next)
-        aux = aux->next;
-    aux->next = node;
-    node->next = NULL;
-    node->prev = aux; */
 }
 
 void ft_free_stack(t_stack **stack)

@@ -6,13 +6,13 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 21:31:42 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/24 19:38:00 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/28 08:17:36 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void    ft_chunk(t_stack **a, t_stack **b)
+/* void    ft_chunk(t_stack **a, t_stack **b)
 {
     int count;
 
@@ -20,15 +20,15 @@ void    ft_chunk(t_stack **a, t_stack **b)
     while (count > 0)
     {
         if (count > 80)
-            ft_select_nb(a, b, 19, 0, count);
+            ft_select_nb(a, b, 19, 0);
         else if (count > 60)
-            ft_select_nb(a, b, 39, 20, count);
+            ft_select_nb(a, b, 39, 20);
         else if (count > 40)
-            ft_select_nb(a, b, 59, 40, count);
+            ft_select_nb(a, b, 59, 40);
         else if (count > 20)
-            ft_select_nb(a, b, 79, 60, count);
+            ft_select_nb(a, b, 79, 60);
         else
-            ft_select_nb(a, b, 99, 80, count);
+            ft_select_nb(a, b, 99, 80);
         count --;
     }
     count = 99;
@@ -38,34 +38,58 @@ void    ft_chunk(t_stack **a, t_stack **b)
         count --;
     }
 
+} */
+
+void    ft_chunk(t_stack **a, t_stack **b)
+{
+    int count;
+
+    count = 18;
+    while (count > 0)
+    {
+        if (count > 15)
+            ft_select_nb(a, b, 4);
+        else if (count > 10 && count < 16)
+            ft_select_nb(a, b, 9);
+         else if (count > 5 && count < 11)
+            ft_select_nb(a, b, 14);
+        else
+            ft_select_nb(a, b, 18); 
+        count --;
+    }
+    /* count = 19;
+    while (count <= 0)
+    {
+        ft_sort_to_a(a, b ,count);
+        count --;
+    } */
+
 }
 
-void    ft_select_nb(t_stack **a, t_stack **b, int max, int min, int count)
+void    ft_select_nb(t_stack **a, t_stack **b, int max)
 {
     int top;
     int botton;
-    int tmp;
+    t_stack *temp;
 
-    top = ft_search_top(a, min, max);
-    botton = ft_search_botton(a ,min, max);
+    temp = *a;
+    top = ft_search_top(a, max);
+    botton = ft_search_botton(a , max);
+    (*a) = temp;
     if (top < botton)
-        tmp = top;
-    else 
-        tmp = botton;
-    if (tmp < count / 2)
     {
-        while(tmp > 0)
+        while(top > 0)
         {
             ft_rotate_a(a);
-            tmp --;
+            top --;
         }
     }
     else
     {
-        while(tmp > 0)
+        while(botton > 0)
         {
             ft_rev_rot_a(a);
-            tmp --;
+            botton --;
         }
     }
     ft_push_b(a, b);
@@ -75,28 +99,23 @@ void    ft_sort_to_a(t_stack **a, t_stack **b, int number)
 {
     int top;
     int botton;
-    int tmp;
 
     top = ft_search_top_(b, number);
-    botton = ft_search_botton_(a ,number);
+    botton = ft_search_botton_(b ,number);
     if (top < botton)
-        tmp = top;
-    else 
-        tmp = botton;
-    if (tmp < number / 2)
     {
-        while(tmp > 0)
+        while(top > 0)
         {
             ft_rotate_b(b);
-            tmp --;
+            top --;
         }
     }
     else
     {
-        while(tmp > 0)
+        while(botton > 0)
         {
             ft_rev_rot_b(b);
-            tmp --;
+            botton --;
         }
     }
     ft_push_a(a, b);
@@ -115,32 +134,28 @@ void    ft_sort_to_a(t_stack **a, t_stack **b, int number)
 
 } */
 
-int    ft_search_top(t_stack **a, int max, int min)
+int    ft_search_top(t_stack **a, int max)
 {
     int i;
 
     i = 0;
-    while ((*a)->next)
+    while ((*a)->nb > max)
     {
-        if ((*a)->nb > min && (*a)->nb < max)
-            break;
         (*a) = (*a)->next;
-        i ++;
+        i++;
     }
     return(i);
 }
 
-int    ft_search_botton(t_stack **a, int max, int min)
+int    ft_search_botton(t_stack **a, int max)
 {
     int i;
 
-    i = 0;
-    while((*a)->next)
+    i = 1;
+    while((*a)->next->next != 0)
         (*a) = (*a)->next;
-    while ((*a)->prev)
+    while ((*a)->nb > max)
     {
-        if ((*a)->nb > min && (*a)->nb < max)
-            break;
         (*a) = (*a)->prev;
         i ++;
     }

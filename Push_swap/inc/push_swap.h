@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:59:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/24 19:20:13 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:52:49 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ void		ft_sort_three(t_stack **a);
 void		ft_sort_five(t_stack **a, t_stack **b);
 void		ft_sort_five_(t_stack **a);
 void		ft_chunk(t_stack **a, t_stack **b);
-void        ft_select_nb(t_stack **a, t_stack **b, int max, int min, int count);
+void        ft_select_nb(t_stack **a, t_stack **b, int max);
 void		ft_free_stack(t_stack **stack);
 void	    ft_sort_to_a(t_stack **a, t_stack **b, int number);
 
 //void		ft_prepare_push(t_stack **a, t_stack **b);
-int		ft_search_top(t_stack **a, int max, int min);
+int		ft_search_top(t_stack **a, int max);
 int		ft_search_top_(t_stack **b, int number);
-int		ft_search_botton(t_stack **a, int max, int min);
+int		ft_search_botton(t_stack **a, int max);
 int		ft_search_botton_(t_stack **b, int number);
 
 #endif
