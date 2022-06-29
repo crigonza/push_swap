@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 10:04:07 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/16 18:22:59 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:52:41 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,26 @@ int	*ft_parse(int argc, char **argv)
 		i++;
 	}
 	return (temp);
+}
+
+int	*ft_split_args(char **argv)
+{
+	char **str;
+	int *temp;
+	int size;
+
+	size = 0;
+	str = ft_split(argv[1], ' ');
+	while(*str)
+	{
+		str++;
+		size++;
+	}
+	temp = (int *)malloc(sizeof(int) * size);
+	if (!temp)
+		return (0);
+	
+
 }
 
 int	ft_num_is_in(int *temp, int i)

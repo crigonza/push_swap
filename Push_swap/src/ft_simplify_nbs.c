@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 20:09:17 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/16 18:23:11 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:17:00 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,20 @@ int	*ft_simplify_nbs(int *numbers, int *copy, int size)
 {
 	int i;
 	int j;
+	int y;
 
 	i = 0;
 	while (i < size)
 	{
+		y = 0;
 		j = 0;
-		while (j < size)
+		while (j < size && y == 0)
 		{
 			if (numbers[i] == copy[j])
+			{
 				numbers[i] = j;
+				y = 1;
+			}
 			j++;
 		}
 		i++;

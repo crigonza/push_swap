@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:41:37 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/28 18:37:44 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/29 17:21:38 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,6 @@ void	ft_rotate(t_stack **stack, char c)
 		ft_putendl_fd("ra", 2);
 	else if (c == 'b')
 		ft_putendl_fd("rb", 2);
-}
-
-void	ft_rotate_b(t_stack **stack)
-{
-	t_stack	*tmp;
-	int		nb;
-
-	tmp = *stack;
-	nb = tmp->nb;
-	while (tmp->next->next)
-	{
-		tmp->nb = tmp->next->nb;
-		tmp = tmp->next;
-	}
-	tmp->nb = nb;
-	ft_putendl_fd("rb", 2);
 }
 
 void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b)

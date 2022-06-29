@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 21:31:42 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/28 19:37:46 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/29 17:24:48 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,39 +120,6 @@ void    ft_sort_to_a(t_stack **a, t_stack **b, int number)
         }
     }
     ft_push_a(a, b);
-}
-
-void ft_prepare_push(t_stack **a, t_stack **b)
-{
-    int nb;
-    int top;
-    int botton;
-    
-    nb = (*a)->nb;
-    top = ft_search_top_(b, nb);
-    botton = ft_search_botton_(b, nb);
-    //if (*b)
-    //{
-        if (top < botton)
-        {
-            while(top > 0)
-            {
-                ft_rotate_b(b);
-                top --;
-            }
-        }
-        else
-        {
-            while(botton > 0)
-            {
-                ft_rev_rot_b(b);
-                botton --;
-            }
-        }
-        ft_push_b(a, b);
-    //}
-    //else
-     //   ft_push_b(a, b);
 }
 
 int    ft_search_top(t_stack **a, int max)
