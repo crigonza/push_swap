@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 10:04:07 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/29 19:52:41 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/04 21:06:32 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,51 @@ int	*ft_parse(int argc, char **argv)
 	return (temp);
 }
 
-int	*ft_split_args(char **argv)
+int	*ft_split_args(char *argv, int size)
 {
-	char **str;
 	int *temp;
-	int size;
+	int i;
+	int j;
 
-	size = 0;
-	str = ft_split(argv[1], ' ');
-	while(*str)
-	{
-		str++;
-		size++;
-	}
+	i = 0;
+	j = 0;
 	temp = (int *)malloc(sizeof(int) * size);
 	if (!temp)
 		return (0);
-	
+	while (argv[i] != '\0')
+	{
+		if (argv[i] == ' ' || i == 0)
+		{
+			temp[j] = ft_atoi(&argv[i]);
+			if (ft_num_is_in(temp, j))
+			{
+				free(temp);
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (temp);
+}
 
+int ft_size(char *arg)
+{
+	int size;
+	int i;
+
+	i = 0;
+	if (arg[0] != ' ')
+		size = 1;
+	else
+		size = 0;
+	while(arg[i] != '\0')
+	{
+		if (arg[i] == ' ' && arg[i + 1] != '\0')
+			size ++;
+		i++;	
+	} 
+	return(size);
 }
 
 int	ft_num_is_in(int *temp, int i)
@@ -98,7 +125,7 @@ int	ft_is_sorted(t_stack **stack)
 		tmp = tmp->next;
 	else
 		return (0);
-	while (tmp->next->next)
+	while (tmp->next)
 	{
 		if ((tmp->nb < tmp->next->nb) && (tmp->nb > tmp->prev->nb))
 			tmp = tmp->next;

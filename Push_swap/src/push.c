@@ -6,27 +6,12 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:57:24 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/28 18:34:29 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/06/30 21:44:16 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-/* void    ft_push_b(t_stack **stack_a, t_stack **stack_b)
-{
-    t_stack *a;
-    t_stack *tmp;
-    int nb;
-
-    a = (*stack_a);
-    nb = (*stack_a)->nb;
-    tmp = ft_new_node(nb);
-    (*stack_a) = a->next;
-    free(a);
-    *stack_a = a;
-    ft_add_top(stack_b, tmp);
-    ft_putendl_fd("pb", 2);
-} */
 void    ft_push_b(t_stack **stack_a, t_stack **stack_b)
 {
     t_stack *tmp;
@@ -40,7 +25,7 @@ void    ft_push_b(t_stack **stack_a, t_stack **stack_b)
     tmp->next = *stack_b;
     *stack_b = tmp;
     (*stack_b)->prev = NULL;
-    ft_putendl_fd("pb", 2);
+    ft_putendl_fd("pb", 1);
 }
 
 void    ft_push_a(t_stack **stack_a, t_stack **stack_b)
@@ -56,5 +41,5 @@ void    ft_push_a(t_stack **stack_a, t_stack **stack_b)
     tmp->next = *stack_a;
     *stack_a = tmp;
     (*stack_a)->prev = NULL;
-    ft_putendl_fd("pa", 2);
+    ft_putendl_fd("pa", 1);
 }

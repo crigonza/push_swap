@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:36:44 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/27 21:02:34 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/01 18:34:01 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*ft_stack(int *numbers, int size)
 
 	i = 0;
 	stack = NULL;
-	while (i < size - 1)
+	while (i < size)
 	{
 		temp = ft_new_node(numbers[i]);
 		ft_stack_add_node(&stack, temp);
@@ -42,21 +42,28 @@ t_stack	*ft_new_node(int number)
 	return (new);
 }
 
-void	ft_stack_add_node(t_stack **stack, t_stack *node)
+void	ft_stack_add_node(t_stack **st, t_stack *node)
 {
-	t_stack	*aux;
+	t_stack *tmp;
 
-	if (*stack == NULL)
+	if (*st == NULL)
 	{
-		*stack = node;
+		*st = node;
 		return ;
 	}
-	aux = *stack;
-	while (aux->next)
-		aux = aux->next;
-	aux->next = node;
-	node->next = NULL;
-	node->prev = aux;
+	/* while ((*st)->next)
+		(*st) = (*st)->next; */
+	tmp = ft_last(*st);
+	tmp->next = node;
+	//node->next = NULL;
+	node->prev = tmp;
+}
+
+t_stack *ft_last(t_stack *st)
+{
+while(st->next)
+	st = st->next;
+return(st);
 }
 
 void	ft_add_top(t_stack **stack, t_stack *node)

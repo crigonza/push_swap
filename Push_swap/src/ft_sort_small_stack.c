@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 20:31:04 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/28 18:41:10 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/04 21:54:59 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,37 +51,33 @@ void	ft_sort_five(t_stack **a, t_stack **b)
 	ft_push_b(a, b);
 	ft_push_b(a, b);
 	ft_sort_three(a);
+	ft_sort_five_(a, b);
 	ft_push_a(a, b);
-	ft_sort_five_(a);
+	ft_sort_five_(a, b);
 	ft_push_a(a, b);
-	ft_sort_five_(a);
+	if (!ft_is_sorted(a))
+	{
+		while((*a)->nb != 0)
+			ft_rotate(a, 'a');
+	}
+
 }
 
-void	ft_sort_five_(t_stack **a)
+void	ft_sort_five_(t_stack **a, t_stack **b)
 {
-	if ((*a)->nb > (*a)->next->nb)
+	int next;
+	int min;
+
+	min = ft_find_min(a);
+	next = ft_find_next(a, (*b)->nb);
+	if (next)
 	{
-		if ((*a)->nb < (*a)->next->next->nb)
-			ft_swap(a, 'a');
-		else if ((*a)->nb > (*a)->next->next->nb)
-		{
-			if ((*a)->next->next->next->next == NULL)
-			{
-				if ((*a)->nb > (*a)->next->next->next->nb)
-					ft_rotate(a, 'a');
-			}
-			else
-			{
-				if ((*a)->nb > (*a)->next->next->next->next->nb)
-					ft_rotate(a, 'a');
-				else
-				{
-					ft_rev_rot(a, 'a');
-					ft_swap(a, 'a');
-					ft_rotate(a, 'a');
-					ft_rotate(a, 'a');
-				}
-			}
-		}
+		while((*a)->nb != next)
+			ft_rotate(a, 'a');
 	}
+	else
+	{
+		while((*a)->nb != min)
+			ft_rotate(a, 'a');
+	}	
 }

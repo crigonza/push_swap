@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:41:37 by crigonza          #+#    #+#             */
-/*   Updated: 2022/06/29 17:21:38 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/01 18:38:00 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	ft_swap(t_stack **stack, char c)
 	tmp->next->nb = tmp->nb;
 	tmp->nb = swap;
 	if (c == 'a')
-		ft_putendl_fd("sa", 2);
+		ft_putendl_fd("sa", 1);
 	else if (c == 'b')
-		ft_putendl_fd("sb", 2);
+		ft_putendl_fd("sb", 1);
 }
 
 void	ft_rotate(t_stack **stack, char c)
@@ -34,23 +34,23 @@ void	ft_rotate(t_stack **stack, char c)
 
 	tmp = *stack;
 	nb = tmp->nb;
-	while (tmp->next->next != 0)
+	while (tmp->next != 0)
 	{
 		tmp->nb = tmp->next->nb;
 		tmp = tmp->next;
 	}
 	tmp->nb = nb;
 	if (c == 'a')
-		ft_putendl_fd("ra", 2);
+		ft_putendl_fd("ra", 1);
 	else if (c == 'b')
-		ft_putendl_fd("rb", 2);
+		ft_putendl_fd("rb", 1);
 }
 
 void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_rotate(stack_a, 'a');
 	ft_rotate(stack_b, 'b');
-	ft_putendl_fd("rr", 2);
+	ft_putendl_fd("rr", 1);
 }
 
 void	ft_rev_rot(t_stack **stack, char c)
@@ -67,9 +67,9 @@ void	ft_rev_rot(t_stack **stack, char c)
 	}
 	(*stack)->nb = nb;
 	if (c == 'a')
-		ft_putendl_fd("rra", 2);
+		ft_putendl_fd("rra", 1);
 	else if (c == 'b')
-		ft_putendl_fd("rrb", 2);
+		ft_putendl_fd("rrb", 1);
 }
 
 void	ft_rev_rot_b(t_stack **stack)
@@ -87,12 +87,12 @@ void	ft_rev_rot_b(t_stack **stack)
 		tmp = tmp->prev;
 	}
 	tmp->nb = nb;
-	ft_putendl_fd("rrb", 2);
+	ft_putendl_fd("rrb", 1);
 }
 
 void	ft_rev_rot_ab(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_rev_rot(stack_a, 'a');
 	ft_rev_rot(stack_b, 'b');
-	ft_putendl_fd("rrr", 2);
+	ft_putendl_fd("rrr", 1);
 }
