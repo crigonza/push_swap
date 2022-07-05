@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:36:44 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/01 18:34:01 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/05 13:39:05 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_stack	*ft_new_node(int number)
 
 void	ft_stack_add_node(t_stack **st, t_stack *node)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (*st == NULL)
 	{
@@ -59,11 +59,11 @@ void	ft_stack_add_node(t_stack **st, t_stack *node)
 	node->prev = tmp;
 }
 
-t_stack *ft_last(t_stack *st)
+t_stack	*ft_last(t_stack *st)
 {
-while(st->next)
-	st = st->next;
-return(st);
+	while (st->next)
+		st = st->next;
+	return (st);
 }
 
 void	ft_add_top(t_stack **stack, t_stack *node)
@@ -78,13 +78,13 @@ void	ft_add_top(t_stack **stack, t_stack *node)
 	*stack = node;
 }
 
-void ft_free_stack(t_stack **stack)
+void	ft_free_stack(t_stack **stack)
 {
-    t_stack *temp;
+	t_stack *temp;
 
-    temp = *stack;
-    *stack = temp->next;
-    free(temp);
-    if(*stack != 0)
-        ft_free_stack(stack);
+	temp = *stack;
+	*stack = temp->next;
+	free(temp);
+	if (*stack != 0)
+		ft_free_stack(stack);
 }

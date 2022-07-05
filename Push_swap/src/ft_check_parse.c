@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 10:04:07 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/04 21:06:32 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/05 13:39:32 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	*ft_parse(int argc, char **argv)
 
 int	*ft_split_args(char *argv, int size)
 {
-	int *temp;
-	int i;
-	int j;
+	int	*temp;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -67,23 +67,23 @@ int	*ft_split_args(char *argv, int size)
 	return (temp);
 }
 
-int ft_size(char *arg)
+int	ft_size(char *arg)
 {
-	int size;
-	int i;
+	int	size;
+	int	i;
 
 	i = 0;
 	if (arg[0] != ' ')
 		size = 1;
 	else
 		size = 0;
-	while(arg[i] != '\0')
+	while (arg[i] != '\0')
 	{
 		if (arg[i] == ' ' && arg[i + 1] != '\0')
-			size ++;
-		i++;	
-	} 
-	return(size);
+			size++;
+		i++;
+	}
+	return (size);
 }
 
 int	ft_num_is_in(int *temp, int i)

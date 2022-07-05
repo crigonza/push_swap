@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:41:37 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/01 18:38:00 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/05 14:33:02 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b)
 
 void	ft_rev_rot(t_stack **stack, char c)
 {
-	int		nb;
+	int	nb;
 
 	while ((*stack)->next != 0)
 		(*stack) = (*stack)->next;
@@ -96,3 +96,4 @@ void	ft_rev_rot_ab(t_stack **stack_a, t_stack **stack_b)
 	ft_rev_rot(stack_b, 'b');
 	ft_putendl_fd("rrr", 1);
 }
+

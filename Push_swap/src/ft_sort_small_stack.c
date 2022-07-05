@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 20:31:04 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/04 21:54:59 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/05 13:37:48 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_sort_small_stack(t_stack **a, t_stack **b, int size)
 
 void	ft_sort_three(t_stack **a)
 {
+	if (ft_is_sorted(a))
+		return ;
 	if ((*a)->nb < (*a)->next->nb)
 	{
 		if ((*a)->nb < (*a)->next->next->nb)
@@ -57,27 +59,26 @@ void	ft_sort_five(t_stack **a, t_stack **b)
 	ft_push_a(a, b);
 	if (!ft_is_sorted(a))
 	{
-		while((*a)->nb != 0)
+		while ((*a)->nb != 0)
 			ft_rotate(a, 'a');
 	}
-
 }
 
 void	ft_sort_five_(t_stack **a, t_stack **b)
 {
-	int next;
-	int min;
+	int	next;
+	int	min;
 
 	min = ft_find_min(a);
 	next = ft_find_next(a, (*b)->nb);
 	if (next)
 	{
-		while((*a)->nb != next)
+		while ((*a)->nb != next)
 			ft_rotate(a, 'a');
 	}
 	else
 	{
-		while((*a)->nb != min)
+		while ((*a)->nb != min)
 			ft_rotate(a, 'a');
-	}	
+	}
 }
