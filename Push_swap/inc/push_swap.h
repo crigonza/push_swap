@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:59:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/05 19:48:03 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:34:57 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-#ifndef BUFFER_SIZE
-#define BUFFER_SIZE = 3
-#endif
 
 typedef struct s_stack
 {
@@ -46,9 +43,9 @@ t_stack		*ft_last(t_stack *st);
 void		ft_stack_add_node(t_stack **stack, t_stack *node);
 void		ft_add_top(t_stack **stack, t_stack *node);
 void		ft_swap(t_stack **stack, char c);
+void		ft_swap_ab(t_stack **a, t_stack **b);
 void		ft_rotate(t_stack **stack, char c);
 void		ft_rev_rot(t_stack **stack, char c);
-void		ft_rev_rot_b(t_stack **stack);
 void		ft_push_b(t_stack **stack_a, t_stack **stack_b);
 void		ft_push_a(t_stack **stack_a, t_stack **stack_b);
 void		ft_rotate_ab(t_stack **stack_a, t_stack **stack_b);

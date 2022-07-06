@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_instructions_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:57:24 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/05 13:39:11 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:32:02 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,11 @@ void	ft_push_a(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = tmp;
 	(*stack_a)->prev = NULL;
 	ft_putendl_fd("pa", 1);
+}
+
+void	ft_swap_ab(t_stack **a, t_stack **b)
+{
+	ft_swap(a, 'x');
+	ft_swap(b, 'x');
+	ft_putendl_fd("ss", 1);
 }

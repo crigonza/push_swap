@@ -6,11 +6,11 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 18:51:14 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/05 20:35:47 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:21:16 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/checker_bonus.h"
 
 char    *ft_get_buffer(int fd, char *buffer)
 {
@@ -93,7 +93,7 @@ char *get_next_line(int fd)
     char    *tmp;
     char    *line;
 
-    buffer = ft_get(fd, buffer);
+    buffer = ft_get_buffer(fd, buffer);
     if (!buffer)
         return(NULL);
     line = ft_get_line(buffer);

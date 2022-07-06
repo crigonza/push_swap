@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_instructions.c                                  :+:      :+:    :+:   */
+/*   ft_instructions_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:41:37 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/06 13:33:41 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:21:58 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/checker_bonus.h"
 
-void	ft_swap(t_stack **stack, char c)
+void	ft_swap_bonus(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		swap;
@@ -21,15 +21,9 @@ void	ft_swap(t_stack **stack, char c)
 	swap = tmp->next->nb;
 	tmp->next->nb = tmp->nb;
 	tmp->nb = swap;
-	if (c == 'a')
-		ft_putendl_fd("sa", 1);
-	else if (c == 'b')
-		ft_putendl_fd("sb", 1);
-	else if (c == 'x')
-		return;
 }
 
-void	ft_rotate(t_stack **stack, char c)
+void	ft_rotate_bonus(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		nb;
@@ -42,22 +36,15 @@ void	ft_rotate(t_stack **stack, char c)
 		tmp = tmp->next;
 	}
 	tmp->nb = nb;
-	if (c == 'a')
-		ft_putendl_fd("ra", 1);
-	else if (c == 'b')
-		ft_putendl_fd("rb", 1);
-	else if (c == 'x')
-		return;
 }
 
-void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b)
+void	ft_rotate_ab_bonus(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_rotate(stack_a, 'x');
-	ft_rotate(stack_b, 'x');
-	ft_putendl_fd("rr", 1);
+	ft_rotate(stack_a, 'a');
+	ft_rotate(stack_b, 'b');
 }
 
-void	ft_rev_rot(t_stack **stack, char c)
+void	ft_rev_rot_bonus(t_stack **stack)
 {
 	int	nb;
 
@@ -70,18 +57,11 @@ void	ft_rev_rot(t_stack **stack, char c)
 		(*stack) = (*stack)->prev;
 	}
 	(*stack)->nb = nb;
-	if (c == 'a')
-		ft_putendl_fd("rra", 1);
-	else if (c == 'b')
-		ft_putendl_fd("rrb", 1);
-	else if (c == 'x')
-		return;
 }
 
-void	ft_rev_rot_ab(t_stack **stack_a, t_stack **stack_b)
+void	ft_rev_rot_ab_bonus(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_rev_rot(stack_a, 'x');
-	ft_rev_rot(stack_b, 'x');
-	ft_putendl_fd("rrr", 1);
+	ft_rev_rot(stack_a, 'a');
+	ft_rev_rot(stack_b, 'b');
 }
 
