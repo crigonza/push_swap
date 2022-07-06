@@ -1,26 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:40:57 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/05 13:50:10 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/06 07:07:30 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+void ft_checker(t_stack **c, t_stack **d)
+{
+	char *order;
+	char *temp;
+
+	order = get_next_line(0);
+	while(order)
+	{
+		if (!ft_instruc(c, d, order))
+		{
+			ft_putendl_fd("Error", 1);
+			exit(-1);
+		}
+		free(order);
+		order = get_next_line(0);
+	}
+}
+
 int main(int argc, char **argv)
 {
-    t_stack **a;
-    t_stack **b;
+    t_stack *c;
+    t_stack *d;
     int *nbarray;
     int size;
 
     size = argc - 1;
-	b = NULL;
+	d = NULL;
 	if (argc < 2)
 		return (0);
 	else if (argc == 2)
@@ -37,7 +55,9 @@ int main(int argc, char **argv)
 		ft_putendl_fd("Error", 1);
 		return (0);
 	}
-    a = ft_stack(nbarray, size);
+    c = ft_stack(nbarray, size);
+	ft_checker(&c, &d);
+
 
 
     

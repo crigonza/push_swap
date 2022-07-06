@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:59:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/05 14:30:13 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:48:03 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+#ifndef BUFFER_SIZE
+#define BUFFER_SIZE = 3
+#endif
 
 typedef struct s_stack
 {
