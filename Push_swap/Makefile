@@ -39,6 +39,7 @@ SRC_BONUS = checker_bonus.c \
 		get_next_line_bonus.c \
 		ft_instructions_bonus.c \
 		ft_instructions_2_bonus.c \
+		ft_check_parse.c \
 
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 

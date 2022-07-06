@@ -30,8 +30,8 @@ typedef struct s_stack
 
 int					main(int argc, char **argv);
 void				ft_checker(t_stack **c, t_stack **d);
-int                 ft_check_orders(t_stack **c, t_stack **d, char *order);
-int                 ft_check_orders_2(t_stack **c, t_stack **d, char *order);
+int					ft_check_orders(t_stack **c, t_stack **d, char *order);
+int					ft_check_orders_2(t_stack **c, t_stack **d, char *order);
 char				*get_next_line(int fd);
 char				*ft_get_buffer(int fd, char *buffer);
 char				*ft_get_line(char *buffer);
@@ -41,9 +41,13 @@ void				ft_rotate_bonus(t_stack **stack);
 void				ft_rotate_ab_bonus(t_stack **stack_a, t_stack **stack_b);
 void				ft_rev_rot_bonus(t_stack **stack);
 void				ft_rev_rot_bonus(t_stack **stack);
-void            	ft_rev_rot_ab_bonus(t_stack **stack_a, t_stack **stack_b);
+void				ft_rev_rot_ab_bonus(t_stack **stack_a, t_stack **stack_b);
 void				ft_push_b_bonus(t_stack **stack_a, t_stack **stack_b);
 void				ft_push_a_bonus(t_stack **stack_a, t_stack **stack_b);
 void				ft_swap_ab_bonus(t_stack **a, t_stack **b);
-
+int					*ft_parse_bonus(int argc, char **argv);
+int					*ft_split_args_bonus(char *argv, int size);
+int					ft_size_bonus(char *arg);
+int					ft_num_is_in_bonus(int *temp, int i);
+int					ft_int_is_valid_bonus(char *number);
 #endif

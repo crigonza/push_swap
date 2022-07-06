@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:40:57 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/06 14:47:47 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/06 14:54:49 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,13 @@ int main(int argc, char **argv)
 		return (0);
 	else if (argc == 2)
 	{
-		size = ft_size(argv[1]);
+		size = ft_size_bonus(argv[1]);
 		if (size == 1)
 			return (0);
-		nbarray = ft_split_args(argv[1], size);
+		nbarray = ft_split_args_bonus(argv[1], size);
 	}
 	else
-		nbarray = ft_parse(argc, argv);
+		nbarray = ft_parse_bonus(argc, argv);
 	if (!nbarray)
 	{
 		ft_putendl_fd("Error", 1);
