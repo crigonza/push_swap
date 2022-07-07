@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 22:39:41 by crigonza          #+#    #+#              #
-#    Updated: 2022/07/06 14:13:51 by crigonza         ###   ########.fr        #
+#    Updated: 2022/07/06 19:13:09 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,13 +39,14 @@ SRC_BONUS = checker_bonus.c \
 		get_next_line_bonus.c \
 		ft_instructions_bonus.c \
 		ft_instructions_2_bonus.c \
-		ft_check_parse.c \
+		ft_parse_bonus.c \
+		ft_stacks_bonus.c \
 
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
 OBJ_BONUS = $(addprefix $(OBJ_DIR)/,$(SRC_BONUS:.c=.o)) 
 
-all: $(NAME) $(BONUS)
+all: $(NAME)
 
 $(NAME):   $(OBJS)
 		make -C Libft/
@@ -54,6 +55,8 @@ $(NAME):   $(OBJS)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 		mkdir -p $(OBJ_DIR)
 		$(CC) $(FLAGS) -c $< -o $@
+
+bonus: $(BONUS)
 
 $(BONUS):	$(OBJ_BONUS)
 		make -C Libft/

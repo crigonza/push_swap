@@ -6,41 +6,42 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:40:57 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/06 14:54:49 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:57:41 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/checker_bonus.h"
+
 int	ft_check_orders(t_stack **c, t_stack **d, char *order)
 {
-	if (!ft_strncmp(order, "sa\n", 3))
+	if (!ft_strncmp(order, "sa\n", 4))
 		ft_swap_bonus(c);
-	else if(!ft_strncmp(order, "sb\n", 3))
+	else if(!ft_strncmp(order, "sb\n", 4))
 		ft_swap_bonus(d);
-	else if(!ft_strncmp(order, "ss\n", 3))
+	else if(!ft_strncmp(order, "ss\n", 4))
 		ft_swap_ab_bonus(c, d);
-	else if(!ft_strncmp(order, "pa\n", 3))
+	else if(!ft_strncmp(order, "pa\n", 4))
 		ft_push_a_bonus(c, d);
-	else if(!ft_strncmp(order, "pb\n", 3))
+	else if(!ft_strncmp(order, "pb\n", 4))
 		ft_push_b_bonus(c, d);
-	else if(!ft_strncmp(order, "ra\n", 3))
+	else if(!ft_strncmp(order, "ra\n", 4))
 		ft_rotate_bonus(c);
-	else if(!ft_strncmp(order, "rb\n", 3))
+	else if(!ft_strncmp(order, "rb\n", 4))
 		ft_rotate_bonus(d);
-	else if(!ft_strncmp(order, "rr\n", 3))
+	else if(!ft_strncmp(order, "rr\n", 4))
 		ft_rotate_ab_bonus(c, d);
-	else
-		ft_check_orders_2(c, d, order);
+	else if(!ft_check_orders_2(c, d, order))
+		return(0);
 	return(1);
 }
 
 int ft_check_orders_2(t_stack **c, t_stack **d, char *order)
 {
-	if(!ft_strncmp(order, "rrb\n", 4))
+	if(!ft_strncmp(order, "rrb\n", 5))
 		ft_rev_rot_bonus(d);
-	else if(!ft_strncmp(order, "rra\n", 4))
+	else if(!ft_strncmp(order, "rra\n", 5))
 		ft_rev_rot_bonus(c);
-	else if(!ft_strncmp(order, "rrr\n", 4))
+	else if(!ft_strncmp(order, "rrr\n", 5))
 		ft_rev_rot_ab_bonus(c, d);
 	else
 		return(0);
@@ -51,7 +52,6 @@ int ft_check_orders_2(t_stack **c, t_stack **d, char *order)
 void ft_checker(t_stack **c, t_stack **d)
 {
 	char *order;
-	//char *temp;
 
 	order = get_next_line(0);
 	while(order)
@@ -64,6 +64,10 @@ void ft_checker(t_stack **c, t_stack **d)
 		free(order);
 		order = get_next_line(0);
 	}
+	if(ft_is_sorted_bonus(c) && !(*d))
+		ft_putendl_fd("OK", 1);
+	else
+		ft_putendl_fd("KO", 1);
 }
 
 int main(int argc, char **argv)
@@ -91,10 +95,8 @@ int main(int argc, char **argv)
 		ft_putendl_fd("Error", 1);
 		return (0);
 	}
-    c = ft_stack(nbarray, size);
+    c = ft_stack_bonus(nbarray, size);
 	ft_checker(&c, &d);
-
-
 
     
 }

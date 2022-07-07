@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 13:01:30 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/06 14:07:15 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:52:24 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE = 3
+#  define BUFFER_SIZE 10
 # endif
 
 typedef struct s_stack
@@ -32,6 +32,7 @@ int					main(int argc, char **argv);
 void				ft_checker(t_stack **c, t_stack **d);
 int					ft_check_orders(t_stack **c, t_stack **d, char *order);
 int					ft_check_orders_2(t_stack **c, t_stack **d, char *order);
+int					ft_is_sorted_bonus(t_stack **stack);
 char				*get_next_line(int fd);
 char				*ft_get_buffer(int fd, char *buffer);
 char				*ft_get_line(char *buffer);
@@ -50,4 +51,9 @@ int					*ft_split_args_bonus(char *argv, int size);
 int					ft_size_bonus(char *arg);
 int					ft_num_is_in_bonus(int *temp, int i);
 int					ft_int_is_valid_bonus(char *number);
+t_stack				*ft_stack_bonus(int *numbers, int size);
+t_stack				*ft_new_node_bonus(int number);
+t_stack				*ft_last_bonus(t_stack *st);
+void				ft_stack_add_node_bonus(t_stack **st, t_stack *node);
+
 #endif

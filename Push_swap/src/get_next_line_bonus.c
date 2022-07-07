@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 18:51:14 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/06 13:21:16 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:49:48 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ char    *ft_get_buffer(int fd, char *buffer)
         }
         tmp[f] = '\0';
         buffer = ft_strjoin(buffer, tmp);
-    }   
-    free(tmp);
+    }
+    free(tmp);   
     return(buffer);
 }
 
@@ -71,7 +71,7 @@ char *ft_next(char *buffer)
     char    *temp;
 
     len = 0;
-    while(buffer[len] && buffer[len])
+    while(buffer[len] && buffer[len] != '\n')
         len++;
     if (buffer[len] == '\n')
         len++;
@@ -80,9 +80,9 @@ char *ft_next(char *buffer)
         free(buffer);
         return(NULL);
     }
-    size = ft_strlen(buffer[len]) + 1;
+    size = ft_strlen(&buffer[len]) + 1;
     temp = (char *)malloc(sizeof(char) * size);
-    ft_memcpy(temp, buffer[len], size);
+    ft_memcpy(temp, &buffer[len], size);
     free(buffer);
     return(temp);
 }
@@ -90,8 +90,12 @@ char *ft_next(char *buffer)
 char *get_next_line(int fd)
 {
     static char *buffer;
-    char    *tmp;
     char    *line;
+    if (!buffer)
+	{
+		buffer = (char *)malloc(sizeof(char) * 1);
+		buffer[0] = '\0';
+	}
 
     buffer = ft_get_buffer(fd, buffer);
     if (!buffer)

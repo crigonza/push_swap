@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:08:56 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/05 14:45:14 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/06 19:01:00 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int argc, char **argv)
 	int *nbarray;
 	int size;
 
-	printf("%s", argv[0]);
 	size = argc - 1;
 	stack_b = NULL;
 	if (argc < 2)
