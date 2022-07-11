@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:40:57 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:37:16 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:45:14 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ void	ft_checker(t_stack **c, t_stack **d)
 
 int	main(int argc, char **argv)
 {
-	t_stack *c;
-	t_stack *d;
-	int *nbarray;
-	int size;
+	t_stack	*c;
+	t_stack	*d;
+	int		*nbarray;
+	int		size;
 
 	size = argc - 1;
 	d = NULL;

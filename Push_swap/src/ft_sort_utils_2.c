@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:57:53 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:38:56 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:50:07 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ int	ft_find_next(t_stack **b, int num)
 
 void	ft_sort_to_a(t_stack **a, t_stack **b, int number)
 {
-	int top;
-	int bottom;
-	t_stack *tmp;
+	int		top;
+	int		bottom;
+	t_stack	*tmp;
 
 	tmp = *b;
 	top = ft_search_top_(b, number);

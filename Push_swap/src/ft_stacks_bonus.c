@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 18:45:19 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:39:19 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:50:49 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_stack	*ft_last_bonus(t_stack *st)
 
 int	ft_is_sorted_bonus(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = *stack;
 	if (tmp->nb < tmp->next->nb)

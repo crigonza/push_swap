@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 18:51:14 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:39:34 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:52:34 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,14 @@ char	*ft_next(char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char *buffer;
-	char *line;
+	static char	*buffer;
+	char		*line;
+
 	if (!buffer)
 	{
 		buffer = (char *)malloc(sizeof(char) * 1);
 		buffer[0] = '\0';
 	}
-
 	buffer = ft_get_buffer(fd, buffer);
 	if (!buffer)
 		return (NULL);

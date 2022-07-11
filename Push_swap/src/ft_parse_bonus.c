@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 14:15:59 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:38:29 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:47:49 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	ft_num_is_in_bonus(int *temp, int i)
 
 int	ft_int_is_valid_bonus(char *number)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (number[i] == '-' || number[i] == '+')
