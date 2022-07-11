@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 22:39:41 by crigonza          #+#    #+#              #
-#    Updated: 2022/07/06 19:13:09 by crigonza         ###   ########.fr        #
+#    Updated: 2022/07/11 18:06:39 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ OBJ_DIR = obj
 SRC = push_swap.c \
 	ft_check_parse.c \
 	ft_algorithm.c \
+	ft_sort_utils.c \
+	ft_sort_utils_2.c \
 	ft_instructions.c \
 	ft_instructions_2.c \
 	ft_simplify_nbs.c \

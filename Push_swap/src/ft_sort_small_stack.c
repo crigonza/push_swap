@@ -6,19 +6,11 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 20:31:04 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/05 13:37:48 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:03:49 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-void	ft_sort_small_stack(t_stack **a, t_stack **b, int size)
-{
-	if (size == 3)
-		ft_sort_three(a);
-	else if (size == 5)
-		ft_sort_five(a, b);
-}
 
 void	ft_sort_three(t_stack **a)
 {
@@ -48,15 +40,24 @@ void	ft_sort_three(t_stack **a)
 	}
 }
 
-void	ft_sort_five(t_stack **a, t_stack **b)
+void	ft_sort_five(t_stack **a, t_stack **b, int size)
 {
-	ft_push_b(a, b);
-	ft_push_b(a, b);
+	int times;
+
+	times = size - 3;
+	while (times > 0)
+	{
+		ft_push_b(a, b);
+		times --;
+	}
 	ft_sort_three(a);
-	ft_sort_five_(a, b);
-	ft_push_a(a, b);
-	ft_sort_five_(a, b);
-	ft_push_a(a, b);
+	times = size - 3;
+	while (times > 0)
+	{
+		ft_sort_five_(a, b);
+		ft_push_a(a, b);
+		times --;
+	}
 	if (!ft_is_sorted(a))
 	{
 		while ((*a)->nb != 0)

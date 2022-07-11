@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 10:04:07 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/06 20:51:00 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 18:13:20 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,25 +112,6 @@ int	ft_int_is_valid(char *number)
 		if (!ft_isdigit(number[i]))
 			return (0);
 		i++;
-	}
-	return (1);
-}
-
-int	ft_is_sorted(t_stack **stack)
-{
-	t_stack	*tmp;
-
-	tmp = *stack;
-	if (tmp->nb < tmp->next->nb)
-		tmp = tmp->next;
-	else
-		return (0);
-	while (tmp->next)
-	{
-		if ((tmp->nb < tmp->next->nb) && (tmp->nb > tmp->prev->nb))
-			tmp = tmp->next;
-		else
-			return (0);
 	}
 	return (1);
 }

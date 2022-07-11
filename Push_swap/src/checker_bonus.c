@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:40:57 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/06 20:57:41 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 18:12:49 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,4 @@ int main(int argc, char **argv)
 	}
     c = ft_stack_bonus(nbarray, size);
 	ft_checker(&c, &d);
-
-    
 }
