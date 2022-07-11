@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 21:31:42 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 19:22:51 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:37:32 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	ft_hundred(t_stack **a, t_stack **b, int size)
 
 void	ft_five_hundred(t_stack **a, t_stack **b, int size)
 {
-    int total;
-    
+	int	total;
+
 	total = size - 1;
 	while (size > 221)
 	{
@@ -62,7 +62,7 @@ void	ft_five_hundred(t_stack **a, t_stack **b, int size)
 
 void	ft_five_hundred_2(t_stack **a, t_stack **b, int size, int total)
 {
-	while(size > 0)
+	while (size > 0)
 	{
 		if (size > 180 && size < 221)
 			ft_select_nb(a, b, 179);

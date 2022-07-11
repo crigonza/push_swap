@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:41:37 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/06 13:33:41 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:38:20 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_swap(t_stack **stack, char c)
 	else if (c == 'b')
 		ft_putendl_fd("sb", 1);
 	else if (c == 'x')
-		return;
+		return ;
 }
 
 void	ft_rotate(t_stack **stack, char c)
@@ -47,7 +47,7 @@ void	ft_rotate(t_stack **stack, char c)
 	else if (c == 'b')
 		ft_putendl_fd("rb", 1);
 	else if (c == 'x')
-		return;
+		return ;
 }
 
 void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b)
@@ -75,7 +75,7 @@ void	ft_rev_rot(t_stack **stack, char c)
 	else if (c == 'b')
 		ft_putendl_fd("rrb", 1);
 	else if (c == 'x')
-		return;
+		return ;
 }
 
 void	ft_rev_rot_ab(t_stack **stack_a, t_stack **stack_b)
@@ -84,4 +84,3 @@ void	ft_rev_rot_ab(t_stack **stack_a, t_stack **stack_b)
 	ft_rev_rot(stack_b, 'x');
 	ft_putendl_fd("rrr", 1);
 }
-

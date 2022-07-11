@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 20:31:04 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:03:49 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:38:46 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ void	ft_sort_three(t_stack **a)
 
 void	ft_sort_five(t_stack **a, t_stack **b, int size)
 {
-	int times;
+	int	times;
 
 	times = size - 3;
 	while (times > 0)
 	{
 		ft_push_b(a, b);
-		times --;
+		times--;
 	}
 	ft_sort_three(a);
 	times = size - 3;
@@ -56,7 +56,7 @@ void	ft_sort_five(t_stack **a, t_stack **b, int size)
 	{
 		ft_sort_five_(a, b);
 		ft_push_a(a, b);
-		times --;
+		times--;
 	}
 	if (!ft_is_sorted(a))
 	{

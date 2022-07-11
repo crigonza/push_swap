@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:41:37 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/06 19:10:35 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:38:11 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,3 @@ void	ft_rev_rot_ab_bonus(t_stack **stack_a, t_stack **stack_b)
 	ft_rev_rot_bonus(stack_a);
 	ft_rev_rot_bonus(stack_b);
 }
-

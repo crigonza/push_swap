@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:54:55 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/07 20:56:34 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:39:05 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_search_top_(t_stack **b, int number)
 
 int	ft_search_bottom_(t_stack **b, int number)
 {
-	int	i;
+	int i;
 
 	i = 1;
 	while ((*b)->next != 0)

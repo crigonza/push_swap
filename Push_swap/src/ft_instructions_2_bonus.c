@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:57:24 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/06 19:11:35 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:37:55 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_push_b_bonus(t_stack **stack_a, t_stack **stack_b)
 
 void	ft_push_a_bonus(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = *stack_b;
 	*stack_b = (*stack_b)->next;
