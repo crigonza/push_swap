@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 10:04:07 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 18:13:20 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/20 20:47:15 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	*ft_parse(int argc, char **argv)
 			return (0);
 		}
 		temp[i] = ft_atoi(argv[i + 1]);
-		if (ft_num_is_in(temp, i))
+		if (ft_num_is_in(temp, i) || !ft_check_one(ft_atoi(argv[i + 1])))
 		{
 			free(temp);
 			return (0);
@@ -42,8 +42,8 @@ int	*ft_parse(int argc, char **argv)
 int	*ft_split_args(char *argv, int size)
 {
 	int	*temp;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -55,7 +55,7 @@ int	*ft_split_args(char *argv, int size)
 		if (argv[i] == ' ' || i == 0)
 		{
 			temp[j] = ft_atoi(&argv[i]);
-			if (ft_num_is_in(temp, j))
+			if (ft_num_is_in(temp, j) || !ft_check_one(ft_atoi(&argv[i])))
 			{
 				free(temp);
 				return (0);
@@ -107,11 +107,36 @@ int	ft_int_is_valid(char *number)
 	i = 0;
 	if (number[i] == '-' || number[i] == '+')
 		i++;
+	if (number[i] == '\0')
+		return (0);
 	while (number[i])
 	{
 		if (!ft_isdigit(number[i]))
 			return (0);
 		i++;
+	}
+	return (1);
+}
+
+int	ft_str_is_valid(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		while(str[i] == ' ')
+			i++;
+		if (str[i] == '-' || str[i] == '+')
+			i++;
+		if (str[i] == ' ')
+			return (0);
+		while(str[i] != ' ')
+		{
+			if (!ft_isdigit(str[i]))
+				return (0);
+			i++;
+		}
 	}
 	return (1);
 }

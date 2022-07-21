@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:40:57 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:45:14 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/20 20:48:20 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,16 @@ void	ft_checker(t_stack **c, t_stack **d)
 	{
 		if (!ft_check_orders(c, d, order))
 		{
-			ft_putendl_fd("Error", 1);
+			ft_putendl_fd("Error", 2);
 			exit(-1);
 		}
 		free(order);
 		order = get_next_line(0);
 	}
 	if (ft_is_sorted_bonus(c) && !(*d))
-		ft_putendl_fd("OK", 1);
+		ft_putendl_fd("OK", 2);
 	else
-		ft_putendl_fd("KO", 1);
+		ft_putendl_fd("KO", 2);
 }
 
 int	main(int argc, char **argv)
@@ -91,7 +91,7 @@ int	main(int argc, char **argv)
 		nbarray = ft_parse_bonus(argc, argv);
 	if (!nbarray)
 	{
-		ft_putendl_fd("Error", 1);
+		ft_putendl_fd("Error", 2);
 		return (0);
 	}
 	c = ft_stack_bonus(nbarray, size);

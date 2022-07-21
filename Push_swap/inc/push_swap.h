@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:59:33 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:36:46 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:29:35 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int					*ft_get_array(int argc, char **argv);
 int					*ft_parse(int argc, char **argv);
 int					ft_num_is_in(int *temp, int i);
 int					ft_int_is_valid(char *number);
+int					ft_str_is_valid(char *str);
+int					ft_check_one(long int num);
 int					ft_is_sorted(t_stack **stack);
 int					*ft_copy(int *numbers, int size);
 int					*ft_order_copy(int *copy, int size);

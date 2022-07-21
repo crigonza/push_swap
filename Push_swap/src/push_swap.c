@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:08:56 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:21:10 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:30:02 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,15 @@ void	ft_select_sort(t_stack **a, t_stack **b, int size)
 		ft_five_hundred(a, b, size);
 }
 
+int ft_check_one(long int num)
+{
+	if (num < -2147483648 || num > 2147483647)
+	{
+		return (0);
+	}
+	return (1);
+}
+
 int	*ft_get_array(int argc, char **argv)
 {
 	int	size;
@@ -57,7 +66,13 @@ int	*ft_get_array(int argc, char **argv)
 	{
 		size = ft_size(argv[1]);
 		if (size == 1)
+		{
+			if (!ft_int_is_valid(argv[1]) || !ft_check_one(ft_atoi(argv[1])))
+				return (0);
 			exit (0);
+		}
+		if (!ft_str_is_valid(argv[1]))
+			return (0);
 		nbarray = ft_split_args(argv[1], size);
 	}
 	else
@@ -77,7 +92,7 @@ int	main(int argc, char **argv)
 	nbarray = ft_get_array(argc, argv);
 	if (!nbarray)
 	{
-		ft_putendl_fd("Error", 1);
+		ft_putendl_fd("Error", 2);
 		return (0);
 	}
 	if (argc == 2)
