@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:36:44 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:51:23 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/21 16:48:50 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void	ft_free_stack(t_stack **stack)
 {
 	t_stack	*temp;
 
+	if(*stack == NULL)
+		return;
 	temp = *stack;
 	*stack = temp->next;
 	free(temp);

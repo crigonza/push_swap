@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 20:31:04 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:38:46 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/25 18:27:06 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,46 +40,26 @@ void	ft_sort_three(t_stack **a)
 	}
 }
 
-void	ft_sort_five(t_stack **a, t_stack **b, int size)
+void	ft_sort_five(t_stack **a, t_stack **b)
 {
-	int	times;
+	int	top;
+	int	bot;
+	t_stack	*tmp;
 
-	times = size - 3;
-	while (times > 0)
-	{
-		ft_push_b(a, b);
-		times--;
-	}
+	tmp = *a;
+	top = ft_search_top_(a, 0);
+	bot = ft_search_bottom_(a, 0);
+	(*a) = tmp;
+	ft_top_or_bottom(a, bot, top , 'a');
+	ft_push_b(a, b);
+	tmp = *a;
+	top = ft_search_top_(a, 1);
+	bot = ft_search_bottom_(a, 1);
+	(*a)= tmp;
+	ft_top_or_bottom(a, bot, top , 'a');
+	ft_push_b(a, b);
 	ft_sort_three(a);
-	times = size - 3;
-	while (times > 0)
-	{
-		ft_sort_five_(a, b);
-		ft_push_a(a, b);
-		times--;
-	}
-	if (!ft_is_sorted(a))
-	{
-		while ((*a)->nb != 0)
-			ft_rotate(a, 'a');
-	}
+	ft_push_a(a, b);
+	ft_push_a(a, b);
 }
 
-void	ft_sort_five_(t_stack **a, t_stack **b)
-{
-	int	next;
-	int	min;
-
-	min = ft_find_min(a);
-	next = ft_find_next(a, (*b)->nb);
-	if (next)
-	{
-		while ((*a)->nb != next)
-			ft_rotate(a, 'a');
-	}
-	else
-	{
-		while ((*a)->nb != min)
-			ft_rotate(a, 'a');
-	}
-}

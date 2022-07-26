@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:57:53 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:50:07 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/25 18:33:49 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@ void	ft_select_nb(t_stack **a, t_stack **b, int max)
 	(*a) = temp;
 	ft_top_or_bottom(a, bottom, top, 'a');
 	ft_push_b(a, b);
+}
+
+void	ft_select_nb_(t_stack **a, t_stack **b, int max)
+{
+	int		top;
+	int		bottom;
+	t_stack	*temp;
+
+	temp = *b;
+	top = ft_search_top(b, max);
+	bottom = ft_search_bottom(b, max);
+	(*b) = temp;
+	ft_top_or_bottom(b, bottom, top, 'b');
+	ft_push_a(a, b);
 }
 
 void	ft_top_or_bottom(t_stack **stack, int bottom, int top, char c)
@@ -46,50 +60,6 @@ void	ft_top_or_bottom(t_stack **stack, int bottom, int top, char c)
 	}
 }
 
-int	ft_find_min(t_stack **b)
-{
-	int		min;
-	t_stack	*tmp;
-
-	tmp = *b;
-	min = tmp->nb;
-	while (tmp->next)
-	{
-		if (min > tmp->nb)
-			min = tmp->nb;
-		tmp = tmp->next;
-	}
-	if (min > tmp->nb)
-		min = tmp->nb;
-	return (min);
-}
-
-int	ft_find_next(t_stack **b, int num)
-{
-	int		i;
-	t_stack	*tmp;
-
-	tmp = *b;
-	i = 0;
-	if (tmp->next)
-	{
-		while (i < 10)
-		{
-			tmp = *b;
-			if (tmp->nb == num + i)
-				return (num + i);
-			while (tmp->next)
-			{
-				tmp = tmp->next;
-				if (tmp->nb == num + i)
-					return (num + i);
-			}
-			i++;
-		}
-	}
-	return (0);
-}
-
 void	ft_sort_to_a(t_stack **a, t_stack **b, int number)
 {
 	int		top;
@@ -102,4 +72,18 @@ void	ft_sort_to_a(t_stack **a, t_stack **b, int number)
 	(*b) = tmp;
 	ft_top_or_bottom(b, bottom, top, 'b');
 	ft_push_a(a, b);
+}
+
+void	ft_sort_to_b(t_stack **a, t_stack **b, int number)
+{
+	int		top;
+	int		bottom;
+	t_stack	*tmp;
+
+	tmp = *a;
+	top = ft_search_top_(a, number);
+	bottom = ft_search_bottom_(a, number);
+	(*a) = tmp;
+	ft_top_or_bottom(a, bottom, top, 'a');
+	ft_push_b(a, b);
 }
