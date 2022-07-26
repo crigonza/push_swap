@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:08:56 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/26 18:05:37 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/26 18:31:34 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_select_sort(t_stack **a, t_stack **b, int size)
 		ft_five_hundred(a, b, size);
 }
 
-void ft_error(void)
+void	ft_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(0);
@@ -60,7 +60,7 @@ int	ft_get_array(int argc, char **argv, t_stack **a)
 
 	nbarray = NULL;
 	size = argc - 1;
-	if (argc == 2 )
+	if (argc == 2)
 	{
 		size = ft_size(argv[1]);
 		if (size == 1 || size == 0)
@@ -75,17 +75,17 @@ int	ft_get_array(int argc, char **argv, t_stack **a)
 	nbarray = ft_copy(nbarray, size);
 	(*a) = ft_stack(nbarray, size);
 	free(nbarray);
-	return(size);
+	return (size);
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int size;
+	int		size;
 
 	if (argc < 2)
-		exit (0);
+		exit(0);
 	stack_b = NULL;
 	size = ft_get_array(argc, argv, &stack_a);
 	if (!ft_is_sorted(&stack_a))

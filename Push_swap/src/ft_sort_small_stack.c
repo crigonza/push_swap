@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 20:31:04 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/25 18:27:06 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/26 18:30:30 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,23 @@ void	ft_sort_three(t_stack **a)
 
 void	ft_sort_five(t_stack **a, t_stack **b)
 {
-	int	top;
-	int	bot;
+	int		top;
+	int		bot;
 	t_stack	*tmp;
 
 	tmp = *a;
 	top = ft_search_top_(a, 0);
 	bot = ft_search_bottom_(a, 0);
 	(*a) = tmp;
-	ft_top_or_bottom(a, bot, top , 'a');
+	ft_top_or_bottom(a, bot, top, 'a');
 	ft_push_b(a, b);
 	tmp = *a;
 	top = ft_search_top_(a, 1);
 	bot = ft_search_bottom_(a, 1);
-	(*a)= tmp;
-	ft_top_or_bottom(a, bot, top , 'a');
+	(*a) = tmp;
+	ft_top_or_bottom(a, bot, top, 'a');
 	ft_push_b(a, b);
 	ft_sort_three(a);
 	ft_push_a(a, b);
 	ft_push_a(a, b);
 }
-

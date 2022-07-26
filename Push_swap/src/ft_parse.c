@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 18:03:42 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/26 18:04:48 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/26 18:30:11 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	*ft_parse(int argc, char **argv)
 
 int	*ft_parse_2(int argc, char **argv)
 {
-	int	*temp;
-	int	i;
+	int *temp;
+	int i;
 
 	i = 0;
 	temp = (int *)malloc(sizeof(int) * argc);

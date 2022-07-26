@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 10:04:07 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/26 18:06:08 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/26 18:29:48 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	*ft_split_args(char *argv, int size)
 {
-	int i;
+	int		i;
+	int		*nbarray;
+	char	**temp;
 
 	i = 0;
-	int	*nbarray;
-	char	**temp;
 	temp = ft_split(argv, ' ');
 	nbarray = ft_parse_2(size, temp);
 	while (temp[i])
@@ -28,7 +28,7 @@ int	*ft_split_args(char *argv, int size)
 		i++;
 	}
 	free(temp);
-	return(nbarray);
+	return (nbarray);
 }
 
 int	ft_size(char *arg)
@@ -74,7 +74,7 @@ int	ft_int_is_valid(char *number)
 	if (number[i] == '-' || number[i] == '+')
 		i++;
 	if (number[i] == '\0')
-		return(0);
+		return (0);
 	while (number[i])
 	{
 		if (!ft_isdigit(number[i]))
@@ -84,7 +84,7 @@ int	ft_int_is_valid(char *number)
 	return (1);
 }
 
-int ft_check_int(long int num)
+int	ft_check_int(long int num)
 {
 	if (num < -2147483648 || num > 2147483647)
 	{
