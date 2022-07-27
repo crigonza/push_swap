@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 22:39:41 by crigonza          #+#    #+#              #
-#    Updated: 2022/07/26 18:07:08 by crigonza         ###   ########.fr        #
+#    Updated: 2022/07/26 21:29:29 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,8 @@ SRC_BONUS = checker_bonus.c \
 		ft_instructions_2_bonus.c \
 		ft_parse_bonus.c \
 		ft_stacks_bonus.c \
+
+		
 
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 

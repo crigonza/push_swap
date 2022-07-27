@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 13:01:30 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:36:05 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/26 21:29:16 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_stack
 
 int					main(int argc, char **argv);
 void				ft_checker(t_stack **c, t_stack **d);
+void				ft_get_array_bonus(int argc, char **argv, t_stack **a);
 int					ft_check_orders(t_stack **c, t_stack **d, char *order);
 int					ft_check_orders_2(t_stack **c, t_stack **d, char *order);
 int					ft_is_sorted_bonus(t_stack **stack);
