@@ -6,13 +6,13 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:57:24 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/27 23:48:51 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:08:53 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/checker_bonus.h"
 
-void	ft_push_b(t_stack **stack_a, t_stack **stack_b, char **moves)
+void	ft_push_b(t_stack **stack_a, t_stack **stack_b, t_moves **moves)
 {
 	t_stack	*tmp;
 
@@ -25,10 +25,10 @@ void	ft_push_b(t_stack **stack_a, t_stack **stack_b, char **moves)
 	tmp->next = *stack_b;
 	*stack_b = tmp;
 	(*stack_b)->prev = NULL;
-	ft_strjoin(*moves, "pb\n");
+	ft_new_move(moves, "pb\n");
 }
 
-void	ft_push_a(t_stack **stack_a, t_stack **stack_b, char **moves)
+void	ft_push_a(t_stack **stack_a, t_stack **stack_b, t_moves **moves)
 {
 	t_stack	*tmp;
 
@@ -41,12 +41,12 @@ void	ft_push_a(t_stack **stack_a, t_stack **stack_b, char **moves)
 	tmp->next = *stack_a;
 	*stack_a = tmp;
 	(*stack_a)->prev = NULL;
-	ft_strjoin(*moves, "pa\n");
+	ft_new_move(moves, "pa\n");
 }
 
-void	ft_swap_ab(t_stack **a, t_stack **b, char **moves)
+void	ft_swap_ab(t_stack **a, t_stack **b, t_moves **moves)
 {
 	ft_swap(a, 'x', moves);
 	ft_swap(b, 'x', moves);
-	ft_strjoin(*moves, "ss\n");
+	ft_new_move(moves, "ss\n");
 }

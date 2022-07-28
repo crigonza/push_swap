@@ -6,13 +6,13 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 20:31:04 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/27 21:13:11 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/28 13:49:15 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/checker_bonus.h"
 
-void	ft_sort_three(t_stack **a, char **moves)
+void	ft_sort_three(t_stack **a, t_moves **moves)
 {
 	if (ft_is_sorted(a))
 		return ;
@@ -40,7 +40,7 @@ void	ft_sort_three(t_stack **a, char **moves)
 	}
 }
 
-void	ft_sort_five(t_stack **a, t_stack **b, char **moves)
+void	ft_sort_five(t_stack **a, t_stack **b, t_moves **moves)
 {
 	int		top;
 	int		bot;

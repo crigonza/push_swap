@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_utils_2.c                                  :+:      :+:    :+:   */
+/*   ft_sort_utils_2_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:57:53 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/27 20:29:12 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/28 13:49:59 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/checker_bonus.h"
 
-void	ft_select_nb(t_stack **a, t_stack **b, int max, char **moves)
+void	ft_select_nb(t_stack **a, t_stack **b, int max, t_moves **moves)
 {
 	int		top;
 	int		bottom;
@@ -26,7 +26,7 @@ void	ft_select_nb(t_stack **a, t_stack **b, int max, char **moves)
 	ft_push_b(a, b, moves);
 }
 
-void	ft_select_nb_(t_stack **a, t_stack **b, int max, char **moves)
+void	ft_select_nb_(t_stack **a, t_stack **b, int max, t_moves **moves)
 {
 	int		top;
 	int		bottom;
@@ -40,7 +40,7 @@ void	ft_select_nb_(t_stack **a, t_stack **b, int max, char **moves)
 	ft_push_a(a, b, moves);
 }
 
-void	ft_top_or_bottom(t_stack **stack, int bottom, int top, char c, char **moves)
+void	ft_top_or_bottom(t_stack **stack, int bottom, int top, char c, t_moves **moves)
 {
 	if (top < bottom)
 	{
@@ -60,7 +60,7 @@ void	ft_top_or_bottom(t_stack **stack, int bottom, int top, char c, char **moves
 	}
 }
 
-void	ft_sort_to_a(t_stack **a, t_stack **b, int number, char **moves)
+void	ft_sort_to_a(t_stack **a, t_stack **b, int number, t_moves **moves)
 {
 	int		top;
 	int		bottom;
@@ -74,7 +74,7 @@ void	ft_sort_to_a(t_stack **a, t_stack **b, int number, char **moves)
 	ft_push_a(a, b, moves);
 }
 
-void	ft_sort_to_b(t_stack **a, t_stack **b, int number, char **moves)
+void	ft_sort_to_b(t_stack **a, t_stack **b, int number, t_moves **moves)
 {
 	int		top;
 	int		bottom;

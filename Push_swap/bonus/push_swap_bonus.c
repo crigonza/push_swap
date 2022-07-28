@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:08:56 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/27 22:12:49 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:20:00 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_is_sorted(t_stack **stack)
 	return (1);
 }
 
-void	ft_select_sort(t_stack **a, t_stack **b, int size, char **moves)
+void	ft_select_sort(t_stack **a, t_stack **b, int size, t_moves **moves)
 {
 	if (size == 2 && (*a)->nb > (*a)->next->nb)
 		ft_swap(a, 'a', moves);
@@ -78,28 +78,24 @@ int	ft_get_array(int argc, char **argv, t_stack **a)
 	return (size);
 }
 
-char *push_swap_bonus(int argc, char **argv)
+void	push_swap_bonus(int argc, char **argv, t_moves **moves)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	*moves;
 	int		size;
 
-	moves = (char *)malloc(sizeof(char));
-	//moves[0] = '\0';
 	if (argc < 2)
 		exit(0);
 	stack_b = NULL;
 	size = ft_get_array(argc, argv, &stack_a);
 	if (!ft_is_sorted(&stack_a))
-		ft_select_sort(&stack_a, &stack_b, size, &moves);
-	while (stack_a->next)
+		ft_select_sort(&stack_a, &stack_b, size, moves);
+	/* while (stack_a->next)
 	{
 		printf("%d|", stack_a->nb);
 		stack_a = stack_a->next;
 	}
-	printf("%d|", stack_a->nb);
+	printf("%d|", stack_a->nb); */
 	ft_free_stack(&stack_a);
 	ft_free_stack(&stack_b);
-	return (moves);
 }

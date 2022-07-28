@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algorithm.c                                     :+:      :+:    :+:   */
+/*   ft_algorithm_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 21:31:42 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/27 20:28:08 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:40:07 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/checker_bonus.h"
 
-void	ft_hundred(t_stack **a, t_stack **b, int size, char **moves)
+void	ft_hundred(t_stack **a, t_stack **b, int size, t_moves **moves)
 {
 	int	key;
 	int	key2;
@@ -38,7 +38,7 @@ void	ft_hundred(t_stack **a, t_stack **b, int size, char **moves)
 	ft_push_to_a(a, b, size - 1, 0, moves);
 }
 
-void	ft_five_hundred(t_stack **a, t_stack **b, int size, char **moves)
+void	ft_five_hundred(t_stack **a, t_stack **b, int size, t_moves **moves)
 {
 	int	key;
 	int	key2;
@@ -64,7 +64,7 @@ void	ft_five_hundred(t_stack **a, t_stack **b, int size, char **moves)
 	ft_push_to_a(a, b, size - 1, 0, moves);
 }
 
-void	ft_push_to_a(t_stack **a, t_stack **b, int size, int siz, char **moves)
+void	ft_push_to_a(t_stack **a, t_stack **b, int size, int siz, t_moves **moves)
 {
 	while (size >= siz)
 	{
@@ -73,7 +73,7 @@ void	ft_push_to_a(t_stack **a, t_stack **b, int size, int siz, char **moves)
 	}
 }
 
-void	ft_push_to_b(t_stack **a, t_stack **b, int size, int siz, char **moves)
+void	ft_push_to_b(t_stack **a, t_stack **b, int size, int siz, t_moves **moves)
 {
 	while (size <= siz)
 	{

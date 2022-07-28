@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:40:57 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/28 07:37:41 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:36:52 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 int	ft_check_orders(t_stack **c, t_stack **d, char *order)
 {
-	if (!ft_strncmp(order, "sa", 3))
+	if (!ft_strncmp(order, "sa\n", 4))
 		ft_swap_bonus(c);
-	else if (!ft_strncmp(order, "sb", 3))
+	else if (!ft_strncmp(order, "sb\n", 4))
 		ft_swap_bonus(d);
-	else if (!ft_strncmp(order, "ss", 3))
+	else if (!ft_strncmp(order, "ss\n", 4))
 		ft_swap_ab_bonus(c, d);
-	else if (!ft_strncmp(order, "pa", 3))
+	else if (!ft_strncmp(order, "pa\n", 4))
 		ft_push_a_bonus(c, d);
-	else if (!ft_strncmp(order, "pb", 3))
+	else if (!ft_strncmp(order, "pb\n", 4))
 		ft_push_b_bonus(c, d);
-	else if (!ft_strncmp(order, "ra", 3))
+	else if (!ft_strncmp(order, "ra\n", 4))
 		ft_rotate_bonus(c);
-	else if (!ft_strncmp(order, "rb", 3))
+	else if (!ft_strncmp(order, "rb\n", 4))
 		ft_rotate_bonus(d);
-	else if (!ft_strncmp(order, "rr", 3))
+	else if (!ft_strncmp(order, "rr\n", 4))
 		ft_rotate_ab_bonus(c, d);
 	else if (!ft_check_orders_2(c, d, order))
 		return (0);
@@ -37,28 +37,27 @@ int	ft_check_orders(t_stack **c, t_stack **d, char *order)
 
 int	ft_check_orders_2(t_stack **c, t_stack **d, char *order)
 {
-	if (!ft_strncmp(order, "rrb", 4))
+	if (!ft_strncmp(order, "rrb\n", 5))
 		ft_rev_rot_bonus(d);
-	else if (!ft_strncmp(order, "rra", 4))
+	else if (!ft_strncmp(order, "rra\n", 5))
 		ft_rev_rot_bonus(c);
-	else if (!ft_strncmp(order, "rrr", 4))
+	else if (!ft_strncmp(order, "rrr\n", 5))
 		ft_rev_rot_ab_bonus(c, d);
 	else
 		return (0);
 	return (1);
 }
 
-void	ft_checker(t_stack **a, t_stack **b, char **moves)
+void	ft_checker(t_stack **a, t_stack **b, t_moves *moves)
 {
-	int i;
-
-	i = 0;
-	while (moves[i])
+	while (moves->next)
 	{
-		if (!ft_check_orders(a, b, moves[i]))
+		if (!ft_check_orders(a, b, moves->move))
 			ft_error();
-		i++;
+		moves = moves->next;
 	}
+	if (!ft_check_orders(a, b, moves->move))
+		ft_error();
 	if (ft_is_sorted(a) && !(*b))
 		ft_putendl_fd("OK", 1);
 	else
@@ -92,24 +91,18 @@ int	main(int argc, char **argv)
 {
 	t_stack		*a;
 	t_stack		*b;
-	t_moves *moves;
-	int i = 0;
+	t_moves		*moves;
 
 	b = NULL;
 	push_swap_bonus(argc, argv, &moves);
 	ft_get_array_bonus(argc, argv, &a);
-	printf ("%s", mov);
-	printf("\n\n");
-	
-	//printf("%s", moves[2]);
 	ft_checker(&a, &b, moves);
-	while (a->next)
+	while (moves->next)
 	{
-		printf("%d|", a->nb);
-		a = a->next;
+		printf("%s", moves->move);
+		moves = moves->next;
 	}
-	printf("%d|", a->nb);
-	
+	printf("%s", moves->move);
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 	return (0);

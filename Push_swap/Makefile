@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 22:39:41 by crigonza          #+#    #+#              #
-#    Updated: 2022/07/27 21:08:43 by crigonza         ###   ########.fr        #
+#    Updated: 2022/07/28 14:18:15 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRC_BONUS = checker_bonus.c \
 		ft_stacks_bonus.c \
 		push_swap_bonus.c \
 		ft_check_bonus.c \
+		ft_moves_bonus.c \
 		ft_algorithm_bonus.c \
 		ft_sort_utils_bonus.c \
 		ft_sort_utils_2_bonus.c \

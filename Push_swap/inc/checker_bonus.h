@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 13:01:30 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/28 07:35:50 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:40:26 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_moves
 
 
 int					main(int argc, char **argv);
-void				ft_checker(t_stack **a, t_stack **b, char **moves);
+void				ft_checker(t_stack **a, t_stack **b, t_moves *moves);
 void				ft_get_array_bonus(int argc, char **argv, t_stack **a);
 int					ft_check_orders(t_stack **c, t_stack **d, char *order);
 int					ft_check_orders_2(t_stack **c, t_stack **d, char *order);
@@ -65,7 +65,7 @@ t_stack				*ft_new_node_bonus(int number);
 t_stack				*ft_last_bonus(t_stack *st);
 void				ft_stack_add_node_bonus(t_stack **st, t_stack *node);
 
-char				*push_swap_bonus(int argc, char **argv);
+void				push_swap_bonus(int argc, char **argv, t_moves **moves);
 int					ft_get_array(int argc, char **argv, t_stack **a);
 int					*ft_parse(int argc, char **argv);
 int					*ft_parse_2(int argc, char **argv);
@@ -82,33 +82,37 @@ t_stack				*ft_stack(int *numbers, int size);
 t_stack				*ft_new_node(int number);
 t_stack				*ft_last(t_stack *st);
 void				ft_stack_add_node(t_stack **stack, t_stack *node);
-void				ft_swap(t_stack **stack, char c, char **moves);
-void				ft_swap_ab(t_stack **a, t_stack **b, char **moves);
-void				ft_rotate(t_stack **stack, char c, char **moves);
-void				ft_rev_rot(t_stack **stack, char c, char **moves);
-void				ft_push_b(t_stack **stack_a, t_stack **stack_b, char **moves);
-void				ft_push_a(t_stack **stack_a, t_stack **stack_b, char **moves);
-void				ft_rotate_ab(t_stack **stack_a, t_stack **stack_b, char **moves);
-void				ft_rev_rot_ab(t_stack **stack_a, t_stack **stack_b, char **moves);
-void				ft_select_sort(t_stack **a, t_stack **b, int size, char **moves);
-void				ft_sort_three(t_stack **a, char **moves);
-void				ft_sort_five(t_stack **a, t_stack **b, char **moves);
-void				ft_hundred(t_stack **a, t_stack **b, int size, char **moves);
-void				ft_five_hundred(t_stack **a, t_stack **b, int size, char **moves);
-void				ft_select_nb(t_stack **a, t_stack **b, int max, char **moves);
+void				ft_swap(t_stack **stack, char c, t_moves **moves);
+void				ft_swap_ab(t_stack **a, t_stack **b, t_moves **moves);
+void				ft_rotate(t_stack **stack, char c, t_moves **moves);
+void				ft_rev_rot(t_stack **stack, char c, t_moves **moves);
+void				ft_push_b(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
+void				ft_push_a(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
+void				ft_rotate_ab(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
+void				ft_rev_rot_ab(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
+void				ft_select_sort(t_stack **a, t_stack **b, int size, t_moves **moves);
+void				ft_sort_three(t_stack **a, t_moves **moves);
+void				ft_sort_five(t_stack **a, t_stack **b, t_moves **moves);
+void				ft_hundred(t_stack **a, t_stack **b, int size, t_moves **moves);
+void				ft_five_hundred(t_stack **a, t_stack **b, int size, t_moves **moves);
+void				ft_select_nb(t_stack **a, t_stack **b, int max, t_moves **moves);
 void				ft_free_stack(t_stack **stack);
-void				ft_push_to_a(t_stack **a, t_stack **b, int size, int siz, char **moves);
-void				ft_sort_to_a(t_stack **a, t_stack **b, int number, char **moves);
+void				ft_push_to_a(t_stack **a, t_stack **b, int size, int siz, t_moves **moves);
+void				ft_sort_to_a(t_stack **a, t_stack **b, int number, t_moves **moves);
 void				ft_top_or_bottom(t_stack **stack, int bottom, int top,
-						char c, char **moves);
+						char c, t_moves **moves);
 int					ft_search_top(t_stack **a, int max);
 int					ft_search_top_(t_stack **b, int number);
 int					ft_search_bottom(t_stack **a, int max);
 int					ft_search_bottom_(t_stack **b, int number);
 
-void				ft_select_nb_(t_stack **a, t_stack **b, int max, char **moves);
-void				ft_sort_to_b(t_stack **a, t_stack **b, int number, char **moves);
-void				ft_push_to_b(t_stack **a, t_stack **b, int size, int siz, char **moves);
+void				ft_select_nb_(t_stack **a, t_stack **b, int max, t_moves **moves);
+void				ft_sort_to_b(t_stack **a, t_stack **b, int number, t_moves **moves);
+void				ft_push_to_b(t_stack **a, t_stack **b, int size, int siz, t_moves **moves);
 void				ft_error(void);
+void	ft_new_move(t_moves **moves, char *move);
+void	ft_move_add(t_moves **moves, t_moves *node);
+t_moves	*ft_lastm(t_moves *moves);
+void	ft_free_moves(t_moves **moves);
 
 #endif
