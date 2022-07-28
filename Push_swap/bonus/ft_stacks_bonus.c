@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacks_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_stacks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 18:45:19 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/11 20:50:49 by crigonza         ###   ########.fr       */
+/*   Created: 2022/06/11 13:36:44 by crigonza          #+#    #+#             */
+/*   Updated: 2022/07/27 20:29:28 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/checker_bonus.h"
 
-t_stack	*ft_stack_bonus(int *numbers, int size)
+t_stack	*ft_stack(int *numbers, int size)
 {
 	t_stack	*temp;
 	t_stack	*stack;
@@ -22,14 +22,14 @@ t_stack	*ft_stack_bonus(int *numbers, int size)
 	stack = NULL;
 	while (i < size)
 	{
-		temp = ft_new_node_bonus(numbers[i]);
-		ft_stack_add_node_bonus(&stack, temp);
+		temp = ft_new_node(numbers[i]);
+		ft_stack_add_node(&stack, temp);
 		i++;
 	}
 	return (stack);
 }
 
-t_stack	*ft_new_node_bonus(int number)
+t_stack	*ft_new_node(int number)
 {
 	t_stack	*new;
 
@@ -42,7 +42,7 @@ t_stack	*ft_new_node_bonus(int number)
 	return (new);
 }
 
-void	ft_stack_add_node_bonus(t_stack **st, t_stack *node)
+void	ft_stack_add_node(t_stack **st, t_stack *node)
 {
 	t_stack	*tmp;
 
@@ -51,33 +51,27 @@ void	ft_stack_add_node_bonus(t_stack **st, t_stack *node)
 		*st = node;
 		return ;
 	}
-	tmp = ft_last_bonus(*st);
+	tmp = ft_last(*st);
 	tmp->next = node;
 	node->prev = tmp;
 }
 
-t_stack	*ft_last_bonus(t_stack *st)
+t_stack	*ft_last(t_stack *st)
 {
 	while (st->next)
 		st = st->next;
 	return (st);
 }
 
-int	ft_is_sorted_bonus(t_stack **stack)
+void	ft_free_stack(t_stack **stack)
 {
-	t_stack	*tmp;
+	t_stack	*temp;
 
-	tmp = *stack;
-	if (tmp->nb < tmp->next->nb)
-		tmp = tmp->next;
-	else
-		return (0);
-	while (tmp->next)
-	{
-		if ((tmp->nb < tmp->next->nb) && (tmp->nb > tmp->prev->nb))
-			tmp = tmp->next;
-		else
-			return (0);
-	}
-	return (1);
+	if (*stack == NULL)
+		return ;
+	temp = *stack;
+	*stack = temp->next;
+	free(temp);
+	if (*stack != 0)
+		ft_free_stack(stack);
 }
