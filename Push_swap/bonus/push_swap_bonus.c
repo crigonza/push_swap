@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:08:56 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/28 14:20:00 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:15:34 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,6 @@ void	push_swap_bonus(int argc, char **argv, t_moves **moves)
 	size = ft_get_array(argc, argv, &stack_a);
 	if (!ft_is_sorted(&stack_a))
 		ft_select_sort(&stack_a, &stack_b, size, moves);
-	/* while (stack_a->next)
-	{
-		printf("%d|", stack_a->nb);
-		stack_a = stack_a->next;
-	}
-	printf("%d|", stack_a->nb); */
 	ft_free_stack(&stack_a);
 	ft_free_stack(&stack_b);
 }

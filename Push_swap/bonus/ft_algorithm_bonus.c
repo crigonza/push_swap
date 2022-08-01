@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 21:31:42 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/28 14:40:07 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:29:33 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_hundred(t_stack **a, t_stack **b, int size, t_moves **moves)
 	}
 	key2 -= key;
 	ft_push_to_b(a, b, key2, size - 1, moves);
-	ft_push_to_a(a, b, size - 1, 0, moves);
+	ft_push_to_a(a, b, size - 1, moves);
 }
 
 void	ft_five_hundred(t_stack **a, t_stack **b, int size, t_moves **moves)
@@ -61,12 +61,12 @@ void	ft_five_hundred(t_stack **a, t_stack **b, int size, t_moves **moves)
 	}
 	key2 -= key;
 	ft_push_to_b(a, b, key2, size - 1, moves);
-	ft_push_to_a(a, b, size - 1, 0, moves);
+	ft_push_to_a(a, b, size - 1, moves);
 }
 
-void	ft_push_to_a(t_stack **a, t_stack **b, int size, int siz, t_moves **moves)
+void	ft_push_to_a(t_stack **a, t_stack **b, int size, t_moves **moves)
 {
-	while (size >= siz)
+	while (size >= 0)
 	{
 		ft_sort_to_a(a, b, size, moves);
 		size--;

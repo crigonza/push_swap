@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:36:44 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/28 14:21:16 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:17:05 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_new_move(t_moves **moves, char *move)
 	t_moves	*new;
 
 	new = (t_moves *)malloc(sizeof(t_moves));
-	/* if (!new)
-		return; */
 	new->move = move;
 	new->next = NULL;
 	new->prev = NULL;

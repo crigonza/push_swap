@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 13:01:30 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/28 14:40:26 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:25:58 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,11 @@ typedef struct s_moves
 	struct s_moves	*next;
 }					t_moves;
 
-
 int					main(int argc, char **argv);
 void				ft_checker(t_stack **a, t_stack **b, t_moves *moves);
 void				ft_get_array_bonus(int argc, char **argv, t_stack **a);
 int					ft_check_orders(t_stack **c, t_stack **d, char *order);
 int					ft_check_orders_2(t_stack **c, t_stack **d, char *order);
-int					ft_is_sorted_bonus(t_stack **stack);
-char				*get_next_line(int fd);
-char				*ft_get_buffer(int fd, char *buffer);
-char				*ft_get_line(char *buffer);
-char				*ft_next(char *buffer);
 void				ft_swap_bonus(t_stack **stack);
 void				ft_rotate_bonus(t_stack **stack);
 void				ft_rotate_ab_bonus(t_stack **stack_a, t_stack **stack_b);
@@ -86,19 +80,29 @@ void				ft_swap(t_stack **stack, char c, t_moves **moves);
 void				ft_swap_ab(t_stack **a, t_stack **b, t_moves **moves);
 void				ft_rotate(t_stack **stack, char c, t_moves **moves);
 void				ft_rev_rot(t_stack **stack, char c, t_moves **moves);
-void				ft_push_b(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
-void				ft_push_a(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
-void				ft_rotate_ab(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
-void				ft_rev_rot_ab(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
-void				ft_select_sort(t_stack **a, t_stack **b, int size, t_moves **moves);
+void				ft_push_b(t_stack **stack_a, t_stack **stack_b,
+						t_moves **moves);
+void				ft_push_a(t_stack **stack_a, t_stack **stack_b,
+						t_moves **moves);
+void				ft_rotate_ab(t_stack **stack_a, t_stack **stack_b,
+						t_moves **moves);
+void				ft_rev_rot_ab(t_stack **stack_a, t_stack **stack_b,
+						t_moves **moves);
+void				ft_select_sort(t_stack **a, t_stack **b, int size,
+						t_moves **moves);
 void				ft_sort_three(t_stack **a, t_moves **moves);
 void				ft_sort_five(t_stack **a, t_stack **b, t_moves **moves);
-void				ft_hundred(t_stack **a, t_stack **b, int size, t_moves **moves);
-void				ft_five_hundred(t_stack **a, t_stack **b, int size, t_moves **moves);
-void				ft_select_nb(t_stack **a, t_stack **b, int max, t_moves **moves);
+void				ft_hundred(t_stack **a, t_stack **b, int size,
+						t_moves **moves);
+void				ft_five_hundred(t_stack **a, t_stack **b, int size,
+						t_moves **moves);
+void				ft_select_nb(t_stack **a, t_stack **b, int max,
+						t_moves **moves);
 void				ft_free_stack(t_stack **stack);
-void				ft_push_to_a(t_stack **a, t_stack **b, int size, int siz, t_moves **moves);
-void				ft_sort_to_a(t_stack **a, t_stack **b, int number, t_moves **moves);
+void				ft_push_to_a(t_stack **a, t_stack **b, int size,
+						t_moves **moves);
+void				ft_sort_to_a(t_stack **a, t_stack **b, int number,
+						t_moves **moves);
 void				ft_top_or_bottom(t_stack **stack, int bottom, int top,
 						char c, t_moves **moves);
 int					ft_search_top(t_stack **a, int max);
@@ -106,13 +110,16 @@ int					ft_search_top_(t_stack **b, int number);
 int					ft_search_bottom(t_stack **a, int max);
 int					ft_search_bottom_(t_stack **b, int number);
 
-void				ft_select_nb_(t_stack **a, t_stack **b, int max, t_moves **moves);
-void				ft_sort_to_b(t_stack **a, t_stack **b, int number, t_moves **moves);
-void				ft_push_to_b(t_stack **a, t_stack **b, int size, int siz, t_moves **moves);
+void				ft_select_nb_(t_stack **a, t_stack **b, int max,
+						t_moves **moves);
+void				ft_sort_to_b(t_stack **a, t_stack **b, int number,
+						t_moves **moves);
+void				ft_push_to_b(t_stack **a, t_stack **b, int size, int siz,
+						t_moves **moves);
 void				ft_error(void);
-void	ft_new_move(t_moves **moves, char *move);
-void	ft_move_add(t_moves **moves, t_moves *node);
-t_moves	*ft_lastm(t_moves *moves);
-void	ft_free_moves(t_moves **moves);
+void				ft_new_move(t_moves **moves, char *move);
+void				ft_move_add(t_moves **moves, t_moves *node);
+t_moves				*ft_lastm(t_moves *moves);
+void				ft_free_moves(t_moves **moves);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:40:57 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/28 14:36:52 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:07:06 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,19 +91,23 @@ int	main(int argc, char **argv)
 {
 	t_stack		*a;
 	t_stack		*b;
-	t_moves		*moves;
+	t_moves		*moves;	
+	t_moves		*tmp;
 
 	b = NULL;
 	push_swap_bonus(argc, argv, &moves);
 	ft_get_array_bonus(argc, argv, &a);
-	ft_checker(&a, &b, moves);
+	tmp = moves;
 	while (moves->next)
 	{
 		printf("%s", moves->move);
 		moves = moves->next;
 	}
 	printf("%s", moves->move);
+	moves = tmp;
+	ft_checker(&a, &b, moves);
 	ft_free_stack(&a);
 	ft_free_stack(&b);
+	ft_free_moves(&moves);
 	return (0);
 }

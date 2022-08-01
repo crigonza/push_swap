@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 22:39:41 by crigonza          #+#    #+#              #
-#    Updated: 2022/07/28 14:18:15 by crigonza         ###   ########.fr        #
+#    Updated: 2022/08/01 17:12:00 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,6 @@ SRC = push_swap.c \
 	ft_stacks.c \
 
 SRC_BONUS = checker_bonus.c \
-		get_next_line_bonus.c \
 		ft_instructions_bonus.c \
 		ft_instructions_2_bonus.c \
 		ft_parse_bonus.c \
