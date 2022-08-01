@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 21:31:42 by crigonza          #+#    #+#             */
-/*   Updated: 2022/08/01 17:29:33 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/08/01 18:09:12 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,53 @@
 
 void	ft_hundred(t_stack **a, t_stack **b, int size, t_moves **moves)
 {
-	int	key;
-	int	key2;
+	int	key[2];
 	int	i;
 	int	j;
 
 	j = 0;
 	i = 0;
-	key = size / 5;
-	key2 = key;
+	key[0] = size / 5;
+	key[1] = key[0];
 	while (i < 4)
 	{
-		while (j < key2)
+		while (j < key[1])
 		{
-			ft_select_nb(a, b, key2 - 1, moves);
+			ft_select_nb(a, b, key[1] - 1, moves);
 			j++;
 		}
-		key2 += key;
+		key[1] += key[0];
 		i++;
 	}
-	key2 -= key;
-	ft_push_to_b(a, b, key2, size - 1, moves);
+	key[1] -= key[0];
+	key[0] = size - 1;
+	ft_push_to_b(a, b, key, moves);
 	ft_push_to_a(a, b, size - 1, moves);
 }
 
 void	ft_five_hundred(t_stack **a, t_stack **b, int size, t_moves **moves)
 {
-	int	key;
-	int	key2;
+	int	key[2];
 	int	i;
 	int	j;
 
 	j = 0;
 	i = 0;
-	key = size / 15;
-	key2 = key;
+	key[0] = size / 15;
+	key[1] = key[0];
 	while (i < 14)
 	{
-		while (j < key2)
+		while (j < key[1])
 		{
-			ft_select_nb(a, b, key2 - 1, moves);
+			ft_select_nb(a, b, key[1] - 1, moves);
 			j++;
 		}
-		key2 += key;
+		key[1] += key[0];
 		i++;
 	}
-	key2 -= key;
-	ft_push_to_b(a, b, key2, size - 1, moves);
+	key[1] -= key[0];
+	key[0] = size - 1;
+	ft_push_to_b(a, b, key, moves);
 	ft_push_to_a(a, b, size - 1, moves);
 }
 
@@ -73,11 +73,11 @@ void	ft_push_to_a(t_stack **a, t_stack **b, int size, t_moves **moves)
 	}
 }
 
-void	ft_push_to_b(t_stack **a, t_stack **b, int size, int siz, t_moves **moves)
+void	ft_push_to_b(t_stack **a, t_stack **b, int *key, t_moves **moves)
 {
-	while (size <= siz)
+	while (key[1] <= key[0])
 	{
-		ft_sort_to_b(a, b, size, moves);
-		size++;
+		ft_sort_to_b(a, b, key[1], moves);
+		key[1]++;
 	}
 }

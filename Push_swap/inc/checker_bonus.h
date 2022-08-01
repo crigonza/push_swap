@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 13:01:30 by crigonza          #+#    #+#             */
-/*   Updated: 2022/08/01 17:25:58 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/08/01 18:00:19 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ void				ft_push_to_a(t_stack **a, t_stack **b, int size,
 						t_moves **moves);
 void				ft_sort_to_a(t_stack **a, t_stack **b, int number,
 						t_moves **moves);
-void				ft_top_or_bottom(t_stack **stack, int bottom, int top,
-						char c, t_moves **moves);
+void				ft_top_or_bottom(t_stack **stack, int *tb, char c,
+						t_moves **moves);
 int					ft_search_top(t_stack **a, int max);
 int					ft_search_top_(t_stack **b, int number);
 int					ft_search_bottom(t_stack **a, int max);
@@ -114,7 +114,7 @@ void				ft_select_nb_(t_stack **a, t_stack **b, int max,
 						t_moves **moves);
 void				ft_sort_to_b(t_stack **a, t_stack **b, int number,
 						t_moves **moves);
-void				ft_push_to_b(t_stack **a, t_stack **b, int size, int siz,
+void				ft_push_to_b(t_stack **a, t_stack **b, int *key,
 						t_moves **moves);
 void				ft_error(void);
 void				ft_new_move(t_moves **moves, char *move);

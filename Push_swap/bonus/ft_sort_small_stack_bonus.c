@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 20:31:04 by crigonza          #+#    #+#             */
-/*   Updated: 2022/07/28 13:49:15 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/08/01 18:05:56 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,20 @@ void	ft_sort_three(t_stack **a, t_moves **moves)
 
 void	ft_sort_five(t_stack **a, t_stack **b, t_moves **moves)
 {
-	int		top;
-	int		bot;
+	int		tb[2];
 	t_stack	*tmp;
 
 	tmp = *a;
-	top = ft_search_top_(a, 0);
-	bot = ft_search_bottom_(a, 0);
+	tb[0] = ft_search_top_(a, 0);
+	tb[1] = ft_search_bottom_(a, 0);
 	(*a) = tmp;
-	ft_top_or_bottom(a, bot, top, 'a', moves);
+	ft_top_or_bottom(a, tb, 'a', moves);
 	ft_push_b(a, b, moves);
 	tmp = *a;
-	top = ft_search_top_(a, 1);
-	bot = ft_search_bottom_(a, 1);
+	tb[0] = ft_search_top_(a, 1);
+	tb[1] = ft_search_bottom_(a, 1);
 	(*a) = tmp;
-	ft_top_or_bottom(a, bot, top, 'a', moves);
+	ft_top_or_bottom(a, tb, 'a', moves);
 	ft_push_b(a, b, moves);
 	ft_sort_three(a, moves);
 	ft_push_a(a, b, moves);
