@@ -6,7 +6,7 @@
 #    By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 22:39:41 by crigonza          #+#    #+#              #
-#    Updated: 2022/08/01 17:12:00 by crigonza         ###   ########.fr        #
+#    Updated: 2022/08/02 21:34:16 by crigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,7 @@ clean:
 
 fclean: clean
 		rm -f $(NAME)
+		rm -f $(BONUS)
 		make fclean -C Libft/
 
 re: fclean all

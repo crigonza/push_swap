@@ -6,7 +6,7 @@
 /*   By: crigonza <crigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:40:57 by crigonza          #+#    #+#             */
-/*   Updated: 2022/08/01 17:07:06 by crigonza         ###   ########.fr       */
+/*   Updated: 2022/08/02 21:32:57 by crigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,11 @@ void	ft_get_array_bonus(int argc, char **argv, t_stack **a)
 		ft_error();
 	(*a) = ft_stack(nbarray, size);
 	free(nbarray);
+	if (ft_is_sorted(a))
+	{
+		ft_free_stack(a);
+		exit (0);
+	}
 }
 
 int	main(int argc, char **argv)
